@@ -1,0 +1,3 @@
+ngon ngu Java:
+- Ung dung quan ly kho hang(noi bo, dung cho nhan vien) => ung dung console
+- Ung dung Web(10 nam truoc day) => hot, Java Web

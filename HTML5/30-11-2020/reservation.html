@@ -1,0 +1,84 @@
+<link rel="stylesheet" href="./mysites.css">
+<script src="./js/reservation.js"></script>
+<form action="">
+    <table style="margin-left: 20px;">
+        <tr>
+            <td>
+                Name
+            </td>
+            <td>
+                <input type="text" name="name" required id="name">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Select city
+            </td>
+            <td>
+                <select name="city" id="city" required pattern="">
+                    <option value="Select" disabled selected>Select</option>
+                    <option value="Hanoi">Ha noi</option>
+                    <option value="Hai phong">Hải Phòng</option>
+                    
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Arrival Date(MM/dd/yyyy)
+            </td>
+            <td>
+                <input type="date" 
+                onchange="  
+                if(this.checkValidity()) {
+                    let today = new Date();
+                    this.min = today
+                    alert(`ddd = ${this.value.getTime() < today.getTime()}`)
+                    this.value = (this.value.getTime() < today.getTime()) ? today : this.value
+                    
+                    form.departureDate.min = this.value
+                }"
+                required name="arrivalDate" id="arrivalDate">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Departure Date(MM/dd/yyyy)
+            </td>
+            <td>
+                <input type="date" required name="departureDate" id="departureDate">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Number of room(s)
+            </td>
+            <td>
+                <input type="number" 
+                    onchange="if(this.checkValidity()) 
+                    form.numberOfPersons.min = this.value;"
+                    required name="numberOfRooms" id="numberOfRooms">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Number of person(s)
+            </td>
+            <td>
+                <input type="number" required
+                    name="numberOfPersons" id="numberOfPersons">
+            </td>
+        </tr>
+        
+    
+    </table>
+    <div style="margin: 20px;">
+        <input type="submit" value="Submit" class="menuButton" style="display: inline;">
+        <input type="reset" value="Reset" class="menuButton" style="display: inline;">
+        <button class="menuButton" type style="display: inline;" onclick="goBack()">Back</button>
+    </div>
+    
+</form>
+
+
+    

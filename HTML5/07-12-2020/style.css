@@ -1,0 +1,90 @@
+body{
+    /*URL = Uniform Resource Locator / Indicator*/
+    background-image: url('./background.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 100vh;
+    /* width: 960px; */
+}
+header {
+    height: 120px;
+    text-align: center;
+}
+#myh1 {
+    font-family: Arial;
+    color: white;
+    font-size: 300%;
+
+}
+.myh2 {
+    font-family: Arial;
+    font-size: 170%;    
+    color:white;
+}
+.mynav {
+    background-image: url('./bar.jpg');
+    height: 70px;
+    text-align: center;
+    
+}
+a {
+    color: white;
+    text-decoration: none;
+    text-align: center;    
+    padding: 20px;
+    display: inline-block;
+    height: 14px;
+}
+a:hover {
+    text-decoration: underline;
+}
+.adv {
+    padding: 10px; 
+    height: auto;
+    margin: auto;
+}
+td.left {
+    width: 80%;
+    background-color: yellow;
+
+}
+td.right {
+    width: 20%;
+    background-color: aqua;
+    height: auto;
+}
+table {
+    width: 100%;
+}
+aside.left {
+    width: 79%;    
+    background-color: gainsboro;
+    position: relative;
+    display: inline-block;
+}
+aside.right {
+    width: 20%;
+    /* background-color: gray; */
+    background-color: gray;
+    /* float: left;     */
+    position: relative;
+    display: inline-block;
+}
+h2.title {
+    font-size: 1.5em;
+    color: cadetblue;
+    padding-left: 10px;
+}
+.p1 {
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    padding-left: 10px;
+}
+.p2 {
+    color: white;    
+    font-size: 14px;
+    padding-left: 10px;
+}

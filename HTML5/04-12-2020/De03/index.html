@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <!-- <script src="https://code.jquery.com/jquery-3.5.0.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/mysite.css">
+    <script src="./js/index.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="header">
+        <span onclick="navigatePage(this)" id="home">
+            <i class="fa fa-home myIcon"></i>
+            <span>Home</span>
+        </span>
+        <span>
+            <i class="fa fa-image myIcon" class=""></i>
+            <span onclick="navigatePage(this)" id="gallery">Gallery</span>
+        </span>
+        <span onclick="navigatePage(this)" id="order">
+            <i class="fa fa-order myIcon"></i>
+            <span>Order</span>
+        </span>        
+        <span onclick="navigatePage(this)" id="phone">
+            <i class="fa fa-phone myIcon"></i>
+            <span>Phone</span>
+        </span>        
+        <span onclick="navigatePage(this)" id="tablet">
+            <i class="fa fa-laptop myIcon"></i>
+            <span onclick="navigatePage(this)" id="gallery">Tablet</span>
+        </span>        
+        <span onclick="navigatePage(this)" id="laptop">
+            <i class="fa fa-laptop myIcon"></i>
+            <span>Laptop</span>
+        </span>        
+        <div style="display: flex;; flex: 1; justify-content: flex-end; padding-right: 10px;">
+            <span style="display: flex; justify-content: flex-start; align-items: center;">
+                <i class="fa fa-search myIcon" 
+                    style="margin-right: -50px;z-index: 3;
+                    color: gainsboro;
+                    position: relative;"></i>            
+                <input type="text" name="searchText" 
+                    placeholder="Search..."
+                    class="searchBox" id="searchText">            
+            </span>        
+        </div>                
+    </div>
+    <div id="divpageName">
+        <!-- Chua noi dung cac file home.html, gallery.html,... -->
+        <iframe id="pageName" style="width: 100%;height:100vh;" src="./home.html"></iframe>
+    </div>    
+    
+    
+    <footer>
+        <p style="padding-top: 10px; padding-left: 10px;">
+            Copyright info, full name, email link
+            <a href = "mailto:abc@example.com?subject = Feedback&body = Message">
+                billgates@microsoft.com
+                </a>
+        </p>        
+    </footer>
+</body>
+</html>

@@ -1,0 +1,10 @@
+.text-primary {
+    color: aquamarine !important;
+}
+
+table.table-hover tbody tr:hover {
+    background-color: red !important;
+}
+.btn-outline-primary{
+    border-color: red !important;
+}

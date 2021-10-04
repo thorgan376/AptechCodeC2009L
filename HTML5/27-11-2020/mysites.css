@@ -1,0 +1,26 @@
+#headerText {
+    background-color: plum;
+    font-size: 1.3em;
+    width: 400px;
+    padding: 10px 0px;    
+    text-align: center;
+}
+.inputInfo {
+    height: 20px;    
+}
+.menu {
+    float: left;      
+    height: 100vh;/*vertical height*/       
+    display: inline;        
+    margin-right: 20px;
+    border: 1px solid red;    
+}
+.menuButton {
+    height: 40px;  
+    width: 160px;
+    background-image: linear-gradient(salmon,white, salmon);
+    color: red;
+    display: block; 
+    border: 1px solid white;
+    margin-bottom: 10px;
+}

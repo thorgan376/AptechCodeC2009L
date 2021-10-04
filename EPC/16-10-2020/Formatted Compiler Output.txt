@@ -1,0 +1,3 @@
+6	8	C:\Users\User\Documents\code\Aptech\C2009L\EPC\16-10-2020\main.c	[Error] expected declaration specifiers or '...' before string constant
+6	27	C:\Users\User\Documents\code\Aptech\C2009L\EPC\16-10-2020\main.c	[Error] expected declaration specifiers or '...' before '&' token
+28		C:\Users\User\Documents\code\Aptech\C2009L\EPC\16-10-2020\Makefile.win	recipe for target 'main.o' failed

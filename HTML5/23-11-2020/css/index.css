@@ -1,0 +1,82 @@
+#divA {
+    width: 200px;/*css = cascading style sheet */
+    height: 50px;
+    background-color: brown;    
+}
+#divB {
+    /*# is id*/
+    width: 200px;/*css = cascading style sheet */
+    height: 200px;
+    background-color: red;
+}
+.divC {
+    /*. = class*/
+    width: 300px;
+    height: 300px;
+    background-color: aqua;
+}
+.buttonDoSomething {
+    font-size: 1.5em; 
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    line-height: 50px;
+    text-align: center;    
+}
+.sharedHosting {
+    color: blue;   
+}
+.myTitle {
+    font-size: 3em;
+    color: black;
+}
+.mybutton {
+    height: 50px;
+    width: 150px;
+    color: white;
+    /*background-color: yellow !important; */
+    background-color:salmon;
+    border-width: 3px;
+    margin-right: 20px;
+    /* margin: 100px 10px 100px 0px; top right bottom left */
+    border-radius: 25px;
+    border-style: solid;
+    border-color: red;
+}
+
+#tableSong, td, th {
+    border: 1px 
+    solid green;
+    border-collapse: collapse;
+    border-spacing: 0px;
+}
+#tableSong {
+    width: 80%;
+    margin: auto;
+    margin-top: 30px;
+}
+td,th {
+    padding: 10px;
+}
+th {
+    background-color:brown;
+    color: aliceblue;
+}
+.myinput {
+    height: 35px;
+    display: block;
+    margin-bottom: 20px;
+}
+#myFlexBox {
+    background-color: powderblue;
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+.divItem {
+    background-color: rgba(255, 0, 0, 1.0);
+    width: 70px;
+    height: 70px;
+    margin: 10px;
+}

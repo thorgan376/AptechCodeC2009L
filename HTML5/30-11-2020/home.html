@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script
+        src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+        crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./mysites.css">
+    <script src="./js/home.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>This is home page</h1>
+    <section >
+        <div class="menu" style="width: 25%;" >
+            <center>
+                <div>
+                    <hr />
+                        <h1>Main Menu</h1>
+                    <hr />
+                </div>
+                <button class="menuButton" onclick="switchPage(this)" id="buttonHome">Home</button>
+                <button class="menuButton" onclick="switchPage(this)" id="buttonReservation">Reservation</button>
+                <button class="menuButton" onclick="switchPage(this)" id="buttonContact">Contact</button>
+            </center>            
+        </div>
+        <div class="menu" style="width: 70%; ">
+            <center>
+                <div>
+                    <hr />
+                        <h1 id="switchPage">Welcome</h1>
+                    <hr />
+                </div>
+            </center> 
+            <iframe src="home-page.html" id="switchScreen"
+                style="border:0px;" height="100%" width="100%">
+            </iframe> 
+            
+        </div>        
+    </section>
+</body>
+</html>

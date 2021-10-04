@@ -1,0 +1,21 @@
+#headerText {
+    background-color: plum;
+    font-size: 1.3em;
+    width: 400px;
+    padding: 10px 0px;    
+    text-align: center;
+}
+#tableRegister {
+    background-color: plum;
+    width: 400px;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+.inputInfo {
+    height: 20px;
+}
+.myHome {
+    border: 5px solid red;
+    height: 100px;
+    width: 100%;
+}

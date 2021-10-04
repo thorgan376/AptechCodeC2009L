@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./mysites.css">
+    <script src="./index.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <p id="headerText">User Registration</p>
+        <form action="#" onsubmit="validateForm()" >
+            <table id="tableRegister">
+                <tr>
+                    <td>User Id</td>
+                    <td><input type="text" 
+                        required
+                        pattern="^[A-Za-z]{1}[A-Za-z0-9]{4,}"
+                        name="userId" class="inputInfo" id="userId"></td>
+                </tr>
+                <tr>                    
+                    <td>Password</td>
+                    <td><input 
+                        required                        
+                        pattern="(?=.*\d)(?=.*[a-zA-Z]).{8,}"
+                        onchange="if(this.checkValidity()) 
+                            form.confirmPassword.pattern = this.value;"
+                        type="password" 
+                        name="password" class="inputInfo" id="password"></td>
+                </tr>
+                <tr>
+                    <td>Confirm password</td>
+                    <td><input 
+                        required
+                        onchange="this.setCustomValidity(this.validity.patternMismatch 
+                        ? 'Please enter the same Password as above' : '');"
+                        pattern="(?=.*\d)(?=.*[a-zA-Z]).{8,}"                        
+                        type="password" name="confirmPassword" 
+                        class="inputInfo" id="confirmPassword"></td>
+                </tr>
+                <tr>
+                    <td>Existing email Id</td>
+                    <td><input 
+                        required
+                        onchange="if(this.checkValidity()) 
+                            form.confirmEmail.pattern = this.value;"
+                        type="email" name="existingEmail" class="inputInfo" id="existingEmail"></td>
+                </tr>
+                <tr>
+                    <td>Confirm Existing email Id</td>
+                    <td><input 
+                        required
+                        pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+                        onchange="this.setCustomValidity(this.validity.patternMismatch 
+                        ? 'Please enter the same Email as above' : '');"
+                        type="email" name="confirmEmail" class="inputInfo" id="confirmEmail"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="float: left; margin-left: 10px;">
+                        <button type="submit"
+                        >Submit</button>
+                        <button type="reset">Reset</button>
+                    </td>
+                </tr>
+    
+    
+            </table>
+        </form>
+    </center>
+</body>
+</html>
