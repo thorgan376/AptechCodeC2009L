@@ -3,7 +3,8 @@
     public class Program {
         public static void Main(string [] args)
         {
-            Console.WriteLine("aa");
+            MyDictionary myDictionary = new MyDictionary();
+            myDictionary.ShowMenu();
         }
     }
 }

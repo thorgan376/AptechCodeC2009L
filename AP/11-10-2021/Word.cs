@@ -1,7 +1,7 @@
 ﻿using System;
 using DictionaryApp;
 
-namespace _11_10_2021
+namespace DictionaryApp
 {
     public class Word : IWord
     {
