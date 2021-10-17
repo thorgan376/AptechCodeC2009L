@@ -13,19 +13,21 @@ namespace MyApp
     {
         public static void Main(string[] args)
         {
-            string name = "Hoang";
+            string name = "Thái Sơn";
             int x = 10;
             int y = 20;
             //unknown
             var z = 123f;
             long creditCard = 1234_5678_9966_2233L;
-            Console.WriteLine($"hello {name}, x = {x}, y = {y}"); //string template                                                                              
+            Console.WriteLine($"hello {name}, x = {x}, y = {y}"); Console.WriteLine($"hello master {name}, x = {x}, y = {y}");                                                                             
             Console.WriteLine($"credit card = {creditCard}");
             //int sum = Calculation.sum2Numbers(2, 4);
             //int sum = Calculation.sum2Numbers(y: 4, x: 5);//named arguments = labeled parameters
             int sum = Calculation.Sum2Numbers(x: 4, y: null);//named arguments = labeled parameters
-
+            int minus = Calculation.Minus2Number(x: 12, y: 10); //named arguments = labeled parameters
             Console.WriteLine($"sum : {sum}");
+            Console.WriteLine($"minus : {minus}");
+
             Calculation.DoSomeThing(123f);
             Calculation.DoSomeThing("I have a dream");
             Console.WriteLine($"multiply = {Calculation.Multiply2Numbers(x: 5, y: 3)}");

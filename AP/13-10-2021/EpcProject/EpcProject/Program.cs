@@ -8,7 +8,7 @@ namespace EpcProject
         {
             Fibonaci fibonaci = new Fibonaci()
             {
-                N = 1000
+                N = 64
             };
             fibonaci.Calculate();
         }
