@@ -12,10 +12,14 @@ namespace MyApp
         public static int Sum2Numbers(int x, int? y) { 
             return x + (y ?? 0);
         }
-        public static int Minus2Number(int x, int y)
-        {
-            return x - (y ?? 0);
-        }
+        public static int Minus2Number(int x, int? y) {
+            if (x < 0)
+            {
+                Console.WriteLine("x phai lon hon 0");
+                return 0;
+            }
+            return x - (y ?? 1);
+                }
         public static double Multiply2Numbers(double x, double y) =>  x * y;        
         public static void DoSomeThing(dynamic x) { 
             Console.WriteLine($"x = {x}");

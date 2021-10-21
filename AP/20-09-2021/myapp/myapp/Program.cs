@@ -23,7 +23,7 @@ namespace myapp {
             //question ? p3 la "clone" cua p1 hay la "reference" cua p1 ?
             //p3 la "clone" cua p1 new Person la struct
             //p3 la "reference" cua p1 new Person la class
-            p1.Name = "xxxx";
+            
             Console.WriteLine($"p1.name = {p1.Name}");
             Console.WriteLine($"p3.name = {p3.Name}");
             Menu menu= new Menu();

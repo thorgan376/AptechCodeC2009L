@@ -11,8 +11,8 @@ namespace myapp.Models
     {        
         //string? = optional string = "string that can be null"
 
-        public string? Name {  get; set; } //property = function
-        public string? Nationality {  get; set; }
+        public string? Name { get; set; } //property = function
+        public string? Nationality { get; set; }
         public int BirthYear { get; set; }
         public float NetWorth { get; set; }
         public void Input()
@@ -21,15 +21,16 @@ namespace myapp.Models
             this.Name = (Console.ReadLine() ?? "").Trim();
 
             Console.WriteLine("Nationality: ");
-            this.Nationality = (Console.ReadLine() ?? "").Trim();
-            Console.WriteLine("haha");            
-            while(this.Age <= 30)
+            this.Nationality = (Console.ReadLine() ?? "Anonymous").Trim();
+            Console.WriteLine("Processing...");    
+            
+            while (this.BirthYear <= 2000 )
             {
-                Console.WriteLine("BirthYear: ");
-                this.BirthYear = Convert.ToInt32(Console.ReadLine());
-                if(this.Age <= 30)
+                Console.WriteLine("Enter your Birth Year");
+                this.BirthYear = Convert.ToInt32(Console.ReadLine() ?? "");
+                if (this.BirthYear <= 2000)
                 {
-                    Console.WriteLine("Person age must be greater than 30 in the current year");
+                    Console.WriteLine("Birthyear must be bigger than 2000 ");
                 }
             }
             while (this.NetWorth < 1 || this.NetWorth > 100)
@@ -46,8 +47,10 @@ namespace myapp.Models
         public int Age {
             get => BirthYear == 0 ? 0 : DateTime.Now.Year - BirthYear;
         }
+        public int AgeNow { 
+            get => BirthYear == 0 ? 0 : DateTime.Now.Year - BirthYear; }
         public override string ToString() =>
-            $"|{Name} |{Nationality} |{BirthYear} |{NetWorth} |";
+            $"|    {Name}   |   {Nationality}  |     {BirthYear}     |           {NetWorth}           |";
         
 
     }

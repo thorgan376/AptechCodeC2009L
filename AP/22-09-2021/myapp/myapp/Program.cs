@@ -7,26 +7,24 @@ namespace myapp {
             Console.WriteLine("Write a C program using C#");
             Person p1 = new Person() //constructor
             {
-                Name = "Nguyen Van A",
-                Nationality = "vietnam",
+                Name = "Program test by C",
+                Nationality = "VietNam",
                 BirthYear = 1997,
                 NetWorth = 1234
             };
-            Person p2 = new Person() //constructor
+            Person p3 = new Person() //constructor
             {
-                //Name = "Nguyen Van A",
-                Nationality = "vietnam",
+                Name = "But now written by C#",
+                Nationality = "Russia",
                 BirthYear = 1997,
                 NetWorth = 1234
             };
-            Person p3 = p1;
             //question ? p3 la "clone" cua p1 hay la "reference" cua p1 ?
             //p3 la "clone" cua p1 new Person la struct
             //p3 la "reference" cua p1 new Person la class
-            p1.Name = "xxxx";
-            Console.WriteLine($"p1.name = {p1.Name}");
-            Console.WriteLine($"p3.name = {p3.Name}");
-            Menu menu= new Menu();
+            Console.WriteLine($"They said = {p1.Name}");
+            Console.WriteLine($"I said = {p3.Name}");
+            Menu menu = new Menu();
             menu.ShowMenu();
 
         }
