@@ -12,6 +12,7 @@ namespace MyApp.Forms
 {
     public partial class Login : Form
     {
+        public StudentList StudentList { get; set; }
         public Login()
         {
             InitializeComponent();            
@@ -19,7 +20,14 @@ namespace MyApp.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            MessageBox.Show($"username: {txtUsername.Text}, address = {txtPassword.Text}");
+            //MessageBox.Show($"username: {txtUsername.Text}, address = {txtPassword.Text}");
+            if (this.StudentList == null)
+            {
+                this.StudentList = new StudentList();
+                this.StudentList.Login = this;
+                this.StudentList.Show();
+                this.Hide();
+            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)

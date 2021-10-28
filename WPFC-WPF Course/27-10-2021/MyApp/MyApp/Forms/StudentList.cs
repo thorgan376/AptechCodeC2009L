@@ -12,6 +12,7 @@ namespace MyApp.Forms
 {
     public partial class StudentList : Form
     {
+        public Login Login { get; set; }
         public StudentList()
         {
             InitializeComponent();
