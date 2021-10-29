@@ -26,7 +26,6 @@ namespace MyApp.Forms
             if (confirmResult == DialogResult.Yes)
             {
                 // If 'Yes', do something here.
-                Console.WriteLine("haha");
             }
             else
             {
@@ -38,6 +37,5 @@ namespace MyApp.Forms
         {
             MessageBox.Show("Export successfully");
         }
-
     }
 }

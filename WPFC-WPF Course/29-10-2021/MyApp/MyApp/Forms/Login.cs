@@ -32,7 +32,7 @@ namespace MyApp.Forms
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            
+            Application.Exit();
         }
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
