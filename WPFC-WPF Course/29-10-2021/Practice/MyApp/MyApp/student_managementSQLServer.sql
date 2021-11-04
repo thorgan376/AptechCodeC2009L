@@ -8,9 +8,15 @@ IF NOT EXISTS (
         FROM sys.databases
         WHERE [name] = N'Student_Management'
 )
+--Trường hợp nếu dùng docker thì có thể ko cần tạo database dưới
+--Vì docker có thể tạo nhiều container SQL sever từ 1 images mà ko cần thêm dung lượng
+--Và nếu dùng nhiều database trong một container thì sẽ có thể rơi vào trường hợp bị lỗi và mất cả chì lẫn chài 
+--Thay vì chỉ mất 1 database
+
 CREATE DATABASE Student_Management;
 GO
 
+-- --------------------------------------------------------
 CREATE TABLE tblclass (
   MaLop int NOT NULL PRIMARY KEY IDENTITY(1, 1),
   TenLop varchar(30) DEFAULT '',
