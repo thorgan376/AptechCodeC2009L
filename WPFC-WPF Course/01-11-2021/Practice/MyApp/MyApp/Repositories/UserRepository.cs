@@ -17,10 +17,8 @@ namespace MyApp.Repositories
         {
             try
             {
-                Database database = new Database();
-                OdbcConnection connection = database.GetConnection();
-                string sql = @"SELECT * FROM tblStudent WHERE UserNm = @username" +
-                    @"AND Password = @password";
+                OdbcConnection connection = Database.getInstance().GetConnection();
+                string sql = @"SELECT * FROM tblStudent WHERE UserNm = @username AND Password=@password";
                 OdbcCommand command = new OdbcCommand(sql, connection);
                 command.Parameters.AddWithValue("@username", username);
                 command.Parameters.AddWithValue("@password", password);
@@ -29,17 +27,16 @@ namespace MyApp.Repositories
                 {
                     Console.WriteLine(String.Format("{0}", reader[0]));
                     Student student = new Student();
+                    //student.Id = 
+                    //debug here
                     return student;
                 }
                 return null;
             }
             catch (Exception e)
             {
-                return null;
-                Console.WriteLine($"Error encounter: {e.ToString()}");
                 throw e;
             }
-            
         }
     }
 }

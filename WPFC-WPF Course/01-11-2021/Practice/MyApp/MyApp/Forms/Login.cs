@@ -1,6 +1,4 @@
-﻿using MyApp.Models;
-using MyApp.Repositories;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,13 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MyApp.Models;
+using MyApp.Repositories;
 
 namespace MyApp.Forms
 {
     public partial class Login : Form
     {
         public StudentList StudentList { get; set; }
-        private UserRepository userRepository = new UserRepository();
+        private UserRepository userRepository = new UserRepository(); 
         public Login()
         {
             InitializeComponent();
@@ -25,8 +25,6 @@ namespace MyApp.Forms
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show($"username: {txtUsername.Text}, address = {txtPassword.Text}");
-            //Login success
             int check = 0;
             String userName = txtUsername.Text;
             String password = txtPassword.Text;
@@ -35,7 +33,7 @@ namespace MyApp.Forms
                 check = 1;
                 MessageBox.Show("Every Field Is Required");
             }
-            else
+            else 
             {
                 try
                 {
@@ -63,7 +61,7 @@ namespace MyApp.Forms
             if (check == 0)
             {
                 MessageBox.Show("Incorrect UserName or Password");
-            }
+            }        
         }
 
         private void btnExit_Click(object sender, EventArgs e)

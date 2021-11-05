@@ -1,26 +1,22 @@
-﻿using System;
+﻿using MyApp.Models;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Data.Odbc;
 using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
-using MyApp.Models;
 
-//docker pull mcr.microsoft.com/mssql/server
-//docker run -d --name SQL-Server-2019-C2009L -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Ghjkl;1234" -p 1435:1433 mcr.microsoft.com/mssql/server:2019-CU13-ubuntu-20.04
 namespace MyApp.Repositories
 {
     public class UserRepository
     {
         public Student Login(String username, String password)
         {
-            try
-            {
+            try { 
                 Database database = new Database();
-                OdbcConnection connection = database.GetConnection();
-                string sql = @"SELECT * FROM tblStudent WHERE UserNm = @username" +
-                    @"AND Password = @password";
+                OdbcConnection connection = database.GetConnection();                
+                string sql = @"SELECT * FROM tblStudent WHERE UserNm = @username AND Password=@password";
                 OdbcCommand command = new OdbcCommand(sql, connection);
                 command.Parameters.AddWithValue("@username", username);
                 command.Parameters.AddWithValue("@password", password);
@@ -29,17 +25,16 @@ namespace MyApp.Repositories
                 {
                     Console.WriteLine(String.Format("{0}", reader[0]));
                     Student student = new Student();
-                    return student;
+                    //student.Id = 
+                    //debug here
+                    return student;                    
                 }
                 return null;
             }
-            catch (Exception e)
-            {
+            catch (Exception e) {
                 return null;
-                Console.WriteLine($"Error encounter: {e.ToString()}");
                 throw e;
             }
-            
         }
     }
 }

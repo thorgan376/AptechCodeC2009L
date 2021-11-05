@@ -12,7 +12,7 @@ namespace MyApp.Repositories
     {
         //private const string SERVER_NAME = "DESKTOP-7PS7HG8";
         private const string SERVER_NAME = "localhost";
-        private const string PORT = "1433";
+        private const string PORT = "1435";
         private const string USERNAME = "sa";
         private const string PASSWORD = "Abc123456789";
         private const string DB_NAME = "c2009l";

@@ -10,18 +10,18 @@ namespace MyApp.Repositories
 {
     public class Database
     {
-        private const string SERVER_NAME = "localhost";
-        private const string SERVER_PORT = "1435";
+        private const string SEVER_NAME = "DESKTOP-KCDQ3PV";
+        private const string SEVER_PORT = "1435";
         private const string USERNAME = "sa";
         private const string PASSWORD = "Ghjkl;1234";
         private const string DB_NAME = "master";
-        private SqlConnection connection = null;
+        private OdbcConnection connection = null;
         //singleton object
         private static Database instance;
 
-        private Database() {           
-        }
-        public static Database getInstance()
+        public Database() {
+            }
+        public static Database GetInstance()
         {
             if (instance == null)
             {
@@ -29,26 +29,26 @@ namespace MyApp.Repositories
             }
             return instance;
         }
-        
-        public SqlConnection GetConnection()
-        {            
-              string connectionString = $"Server={SERVER_NAME},{SERVER_PORT};" +
-                $"Database={DB_NAME}" +
-                $";User Id={USERNAME}; Password={PASSWORD};";            
+
+        public OdbcConnection GetConnection()
+        {
+            string connectionString = $"Sever = {SEVER_NAME},{SEVER_PORT}\\SQLEXPRESS;" +
+            $"Network Library=DBMSSOCN;Initial Catalog={DB_NAME};" +
+            $"Database={DB_NAME}" +
+            $";User Id={USERNAME};Password={PASSWORD};";
+
+            connection = new OdbcConnection(connectionString);
             try
             {
-                connection = new SqlConnection(connectionString);
-                connection.Open();                
+                connection.Open();
                 return connection;
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
                 connection = null;
-                Console.WriteLine($"Can not open connection: {ex.ToString()}");
+                Console.WriteLine($"Cannot open a connection to database: {e.ToString()}");
                 return connection;
             }
-            
         }
-            
     }
 }
