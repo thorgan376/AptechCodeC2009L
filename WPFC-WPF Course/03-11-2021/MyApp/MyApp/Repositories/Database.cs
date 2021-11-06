@@ -10,8 +10,9 @@ namespace MyApp.Repositories
 {
     public class Database
     {
+        //private const string SERVER_NAME = "DESKTOP-7PS7HG8";
         private const string SERVER_NAME = "localhost";
-        private const string SERVER_PORT = "1435";
+        private const string PORT = "1435";
         private const string USERNAME = "sa";
         private const string PASSWORD = "Ghjkl;1234";
         private const string DB_NAME = "master";
@@ -31,13 +32,14 @@ namespace MyApp.Repositories
         }
         
         public SqlConnection GetConnection()
-        {            
-              string connectionString = $"Server={SERVER_NAME},{SERVER_PORT};" +
-                $"Database={DB_NAME}" +
-                $";User Id={USERNAME}; Password='{PASSWORD}';";            
+        {
+            //Nếu như mật khẩu của Database connection string có dấu ; hoặc kí tự đặc biệt thì phải có dấu ''  VD: 'Ghjkl;1234' 
+            //lấy connection string bằng cách => chọn view->Sever Explorer->Connect To Database->Property-> Connection String
+            string connectionString = $"Data Source={SERVER_NAME},{PORT};Initial Catalog={DB_NAME};" +
+                $"Persist Security Info=True;User ID={USERNAME};Password='{PASSWORD}'";
+            connection = new SqlConnection(connectionString);
             try
             {
-                connection = new SqlConnection(connectionString);
                 connection.Open();                
                 return connection;
             }
