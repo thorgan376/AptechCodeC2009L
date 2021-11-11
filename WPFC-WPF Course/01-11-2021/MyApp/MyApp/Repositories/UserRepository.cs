@@ -31,7 +31,8 @@ namespace MyApp.Repositories
                 return null;
             }
             catch (Exception e) {
-                throw e;                                
+                Console.WriteLine($"Cannot login due to: {e}");
+                throw;
             }
         }
     }

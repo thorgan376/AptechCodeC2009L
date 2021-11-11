@@ -38,13 +38,12 @@ namespace MyApp.Repositories
             try
             {
                 connection = new SqlConnection(connectionString);
-                connection.Open();                
+                connection.Open();
                 return connection;
             }
             catch (Exception ex)
             {
-                connection = null;
-                Console.WriteLine($"Can not open connection: {ex.ToString()}");
+                Console.WriteLine($"Can not open connection due to: {ex}");
                 return connection;
             }
             
