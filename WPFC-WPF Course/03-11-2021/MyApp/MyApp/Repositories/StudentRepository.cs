@@ -12,11 +12,10 @@ namespace MyApp.Repositories
 {
     public class StudentRepository
     {
-        public DataSet GetStudentsDataSet()
+        /*public DataSet GetStudentsDataSet()
         {
             try
             {
-
                 SqlConnection connection = Database.getInstance().GetConnection();
                 string sql = "SELECT " +
                                 "	tblClass.TenLop," +
@@ -36,6 +35,31 @@ namespace MyApp.Repositories
             catch (Exception e)
             {
                 throw e;
+            }
+        }
+        */
+        public DataSet GetStudentDataSet()
+        {
+            try
+            {
+                SqlConnection conn = Database.getInstance().GetConnection();
+                string sql = "SELECT " +
+                    "	tblClass.TenLop," +
+                    "	tblStudent.TenSV," +
+                    "	tblStudent.UserNm," +
+                    "	tblStudent.DiaChi " +
+                    "FROM tblStudent " +
+                                "INNER JOIN tblClass " +
+                                "ON tblStudent.MaLop=tblClass.MaLop;";
+                SqlCommand sqlCommand = new SqlCommand(sql, conn);
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                DataSet dataSet = new DataSet();
+                sqlDataAdapter.Fill(dataSet);
+                return dataSet;
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
     }

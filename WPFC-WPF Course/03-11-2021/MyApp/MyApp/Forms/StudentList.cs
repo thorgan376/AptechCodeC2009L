@@ -21,7 +21,7 @@ namespace MyApp.Forms
             FillDataToGridView();
         }   
         private void FillDataToGridView() {
-            DataSet dataSet = studentRepository.GetStudentsDataSet();
+            DataSet dataSet = studentRepository.GetStudentDataSet();
             
             //Set AutoGenerateColumns False
             dataGridView.AutoGenerateColumns = false;

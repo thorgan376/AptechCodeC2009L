@@ -36,8 +36,10 @@ namespace MyApp.Repositories
         {
             //Nếu như mật khẩu của Database connection string có dấu ; hoặc kí tự đặc biệt thì phải có dấu ''  VD: 'Ghjkl;1234' 
             //lấy connection string bằng cách => chọn view->Sever Explorer->Connect To Database->Property-> Connection String
+
             /*string connectionString = $"Data Source={SERVER_NAME},{PORT};Initial Catalog={DB_NAME};" +
                 $"Persist Security Info=True;User ID={USERNAME};Password='{PASSWORD}'"; */ // This is for Docker, Azure Data Studio
+            //desktop-kcdq3pv\sqlexpress.master.dbo
             string connectionString = $"Server = {SERVER_NAME}; Trusted_Connection=True; Database = {DB_NAME}; User Id = {USERNAME}; Password = '{PASSWORD}';";
             connection = new SqlConnection(connectionString);
             try

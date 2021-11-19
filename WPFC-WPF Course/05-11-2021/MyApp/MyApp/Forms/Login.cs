@@ -55,10 +55,5 @@ namespace MyApp.Forms
         {
             Application.Exit();
         }
-
-        private void txtPassword_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
