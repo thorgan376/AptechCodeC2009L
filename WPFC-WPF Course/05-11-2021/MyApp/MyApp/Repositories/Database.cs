@@ -11,11 +11,11 @@ namespace MyApp.Repositories
     public class Database
     {
         //private const string SERVER_NAME = "DESKTOP-7PS7HG8";
-        private const string SERVER_NAME = "localhost";
+        private const string SERVER_NAME = "DESKTOP-KCDQ3PV\\SQLEXPRESS";
         private const string PORT = "1433";
         private const string USERNAME = "sa";
-        private const string PASSWORD = "Abc123456789";
-        private const string DB_NAME = "c2009l";
+        private const string PASSWORD = "Ghjkl;1234";
+        private const string DB_NAME = "master";
         private SqlConnection connection = null;
         //singleton object
         private static Database instance;
@@ -34,9 +34,16 @@ namespace MyApp.Repositories
         public SqlConnection GetConnection()
         {
             //string connectionString = $"Server={SERVER_NAME},{PORT}\\SQLEXPRESS;" +
-            string connectionString = $"Server=(localdb)\\mssqllocaldb;" +
+
+            /*string connectionString = $"Server=(localdb)\\mssqllocaldb;" +
               $"Database={DB_NAME}" +
-                $";User Id={USERNAME};Password={PASSWORD};";
+                $";User Id={USERNAME};Password={PASSWORD};"; */
+            // CODE cũ của thầy
+            string connectionString = $"Server = {SERVER_NAME}; Trusted_Connection=True; Database = {DB_NAME}; User Id = {USERNAME}; Password = '{PASSWORD}';";
+            if (connection != null)
+            {
+                connection.Close();
+            }
             connection = new SqlConnection(connectionString);
             try
             {
@@ -46,7 +53,7 @@ namespace MyApp.Repositories
             catch (Exception ex)
             {
                 connection = null;
-                Console.WriteLine($"Can not open connection: {ex.ToString()}");
+                Console.WriteLine($"Can not open connection: {ex}");
                 return connection;
             }
             

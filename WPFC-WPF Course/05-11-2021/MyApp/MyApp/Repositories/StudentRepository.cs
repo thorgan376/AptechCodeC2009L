@@ -12,6 +12,36 @@ namespace MyApp.Repositories
 {
     public class StudentRepository
     {
+
+        public void DeleteStudentByID(int studentID)
+        {
+
+        }
+        public void InsertStudent(string maLop, string tenSV, string userNm, string diachi)
+        {
+            try
+            {
+                using (SqlConnection connection = Database.getInstance().GetConnection())
+                {
+                    string sqlStatement = "INSERT into tblStudent (TenSV,DiaChi,MaLop,UserNm)" +
+                        "VALUES (@TenSV,@DiaChi,@MaLop,@UserNm)";
+                    
+                    using SqlCommand commandInsert = new(sqlStatement);
+                    commandInsert.Connection = connection;
+                    commandInsert.Parameters.Add("@TenSV", SqlDbType.VarChar, 30).Value = tenSV;
+                    commandInsert.Parameters.Add("@DiaChi", SqlDbType.VarChar, 30).Value = diachi;
+                    commandInsert.Parameters.Add("@MaLop", SqlDbType.VarChar, 30).Value = maLop;
+                    commandInsert.Parameters.Add("@UserNm", SqlDbType.VarChar, 30).Value = userNm;
+                    
+
+                    commandInsert.ExecuteNonQuery();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         public DataSet GetStudentsDataSet()
         {
             try
@@ -26,16 +56,17 @@ namespace MyApp.Repositories
                                 "FROM tblStudent " +
                                 "INNER JOIN tblClass " +
                                 "ON tblStudent.MaLop=tblClass.MaLop;";
-                using SqlCommand command = new SqlCommand(sql, connection);
+                SqlCommand command = new(sql, connection);
                 command.CommandType = CommandType.Text;
-                using SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(command);
-                using DataSet dataSet = new DataSet();
+                SqlDataAdapter sqlDataAdapter = new(command);
+                DataSet dataSet = new();
                 sqlDataAdapter.Fill(dataSet);
                 return dataSet;
             }
             catch (Exception e)
             {
-                throw e;
+                Console.Write(e.ToString());
+                throw ;
             }
         }
 

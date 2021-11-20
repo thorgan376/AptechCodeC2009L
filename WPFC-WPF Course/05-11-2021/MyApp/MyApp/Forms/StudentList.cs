@@ -19,17 +19,34 @@ namespace MyApp.Forms
         public StudentList()
         {
             InitializeComponent();
+            HideButton();
+        }
+        private void HideButton()
+        {
+            btnSave.Enabled = false;
+            btnExportXML.Enabled = false;
+            btnDelete.Enabled = false;
+            btnInsert.Enabled = false;
+        }
+        
+        private void btnQuery_Click(object sender, EventArgs e)
+        {
             FillDataToGridView();
-        }   
+            btnExportXML.Enabled = true;
+            btnInsert.Enabled=true;
+        }
         private void FillDataToGridView() {
             DataSet dataSet = studentRepository.GetStudentsDataSet();
-            
-            //Set AutoGenerateColumns False
-            dataGridView.AutoGenerateColumns = false;
 
-            //Set Columns Count
-            dataGridView.ColumnCount = 4;            
-            //Add Columns
+            //Set AutoGenerateColumns False Because We only need 4 Columns not all the columns
+
+            dataGridView.AutoGenerateColumns = false;
+            dataGridView.ReadOnly = true;
+            //Set Columns Count: Tạo các cột trước để fetch dữ liệu vào, ko có nó sẽ lỗi
+            dataGridView.DataSource = null;
+            dataGridView.ColumnCount = 4 ;
+            
+            //Add Columns Down Here
             dataGridView.Columns[0].Name = "TenLop";
             dataGridView.Columns[0].HeaderText = "Ten lop";
             dataGridView.Columns[0].DataPropertyName = "TenLop";
@@ -46,7 +63,10 @@ namespace MyApp.Forms
             dataGridView.Columns[3].HeaderText = "Dia chi";
             dataGridView.Columns[3].DataPropertyName = "DiaChi";
 
-            dataGridView.DataSource = dataSet.Tables[0];            
+            dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridView.Columns[dataGridView.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            dataGridView.DataSource = dataSet.Tables[0];
             dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView.SelectionChanged += DataGridView_SelectionChanged;
         }
@@ -54,33 +74,73 @@ namespace MyApp.Forms
         private void DataGridView_SelectionChanged(object sender, EventArgs e)
         {
             var selectedItem = dataGridView.SelectedRows.Count > 0 ? dataGridView.SelectedRows[0] : null;
+            btnDelete.Enabled = selectedItem != null;
+            btnInsert.Enabled = selectedItem != null;
             if (selectedItem != null) {
-                txtClassName.Text = selectedItem.Cells[0].ToString();
-                txtStudentName.Text = selectedItem.Cells[1].ToString();
-                txtUsername.Text = selectedItem.Cells[2].ToString();
-                txtAddress.Text = selectedItem.Cells[3].ToString();
+                txtClassCode.Text = selectedItem.Cells[0].FormattedValue.ToString();
+                txtStudentName.Text = selectedItem.Cells[1].FormattedValue.ToString();
+                txtUsername.Text = selectedItem.Cells[2].FormattedValue.ToString();
+                txtAddress.Text = selectedItem.Cells[3].FormattedValue.ToString(); 
             }
             
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            var confirmResult = MessageBox.Show("Are you sure to delete this item ??",
-                                     "Confirm Delete!!",
-                                     MessageBoxButtons.YesNo);
-            if (confirmResult == DialogResult.Yes)
+            try
             {
-                // If 'Yes', do something here.
+                var confirmResult = MessageBox.Show("Are you sure to delete this item ??",
+                                         "Confirm Delete!!",
+                                         MessageBoxButtons.YesNo);
+                if (confirmResult == DialogResult.Yes)
+                {
+                    foreach (DataGridViewRow item in dataGridView.SelectedRows)
+                    {
+                        dataGridView.Rows.RemoveAt(item.Index);
+                        //studentRepository.DeleteStudentByID();
+                        btnSave.Enabled = true;
+                    }
+                }
+                else if (confirmResult == DialogResult.No)
+                {
+                    // If 'No', do nothing.
+                }
             }
-            else
+            catch (Exception)
             {
-                // If 'No', do something here.
+                throw;
             }
         }
 
         private void btnExportXML_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Export successfully");
+            try
+            {
+                if (dataGridView.DataSource == null)
+                {
+                    MessageBox.Show("No data to export", "Export XML Information", MessageBoxButtons.OK);
+                }
+                else if (dataGridView.DataSource != null)
+                {
+                    MessageBox.Show("Export Successfully", "Export XML Information", MessageBoxButtons.OK);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+                studentRepository.InsertStudent(txtClassCode.Text, txtStudentName.Text, txtUsername.Text, txtAddress.Text);
+                txtClassCode.Text = "";
+                txtStudentName.Text = "";
+                txtUsername.Text = "";
+                txtAddress.Text = "";
+        }
+        private void btnInsert_Click(object sender, EventArgs e)
+        {
+            btnSave.Enabled = true;
         }
     }
 }

@@ -1,25 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Odbc;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyApp.Repositories
+namespace ExamWinform02.Repositories
 {
     public class Database
     {
-        private const string SERVER_NAME = "localhost";
-        private const string SERVER_PORT = "1435";
-        private const string USERNAME = "sa";
-        private const string PASSWORD = "Ghjkl;1234";
-        private const string DB_NAME = "master";
+        //private const string SERVER_NAME = "DESKTOP-7PS7HG8";        
+        private const string CONNECTION_STRING = @"Data Source = (LocalDB)\MSSQLLocalDB;"+
+            @"AttachDbFilename=Database.mdf;Integrated Security = True";        
         private SqlConnection connection = null;
         //singleton object
         private static Database instance;
 
-        private Database() {           
+        private Database()
+        {
         }
         public static Database getInstance()
         {
@@ -29,25 +27,23 @@ namespace MyApp.Repositories
             }
             return instance;
         }
-        
+
         public SqlConnection GetConnection()
         {            
-              string connectionString = $"Server={SERVER_NAME},{SERVER_PORT};" +
-                $"Database={DB_NAME}" +
-                $";User Id={USERNAME}; Password='{PASSWORD}';";            
+            connection = new SqlConnection(CONNECTION_STRING);
             try
             {
-                connection = new SqlConnection(connectionString);
                 connection.Open();
                 return connection;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Can not open connection due to: {ex}");
+                connection = null;
+                Console.WriteLine($"Can not open connection: {ex.ToString()}");
                 return connection;
             }
-            
+
         }
-            
     }
+    
 }

@@ -36,7 +36,7 @@ namespace MyApp.Repositories
                 return null;
             }
             catch (Exception e) {
-                throw e;                                
+                throw;                                
             }
         }
     }
