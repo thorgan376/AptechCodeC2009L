@@ -1,5 +1,7 @@
 ﻿Select * from tblstudent;
 
+Select * from tblclass;
+
 DELETE FROM tblstudent WHERE UserNm = 'sonht';
 
 INSERT INTO tblstudent(TenSV,GioiTinh,NSinh,DiaChi,MaLop,UserNm,Password)

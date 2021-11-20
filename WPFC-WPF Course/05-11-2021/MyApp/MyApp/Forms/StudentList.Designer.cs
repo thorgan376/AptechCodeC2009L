@@ -30,7 +30,7 @@ namespace MyApp.Forms
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.txtClassName = new System.Windows.Forms.TextBox();
+            this.txtClassCode = new System.Windows.Forms.TextBox();
             this.Username = new System.Windows.Forms.Label();
             this.txtStudentName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -61,13 +61,13 @@ namespace MyApp.Forms
             this.label1.Text = "Danh sách sinh viên";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txtClassName
+            // txtClassCode
             // 
-            this.txtClassName.Location = new System.Drawing.Point(162, 77);
-            this.txtClassName.Margin = new System.Windows.Forms.Padding(1);
-            this.txtClassName.Name = "txtClassName";
-            this.txtClassName.Size = new System.Drawing.Size(306, 23);
-            this.txtClassName.TabIndex = 9;
+            this.txtClassCode.Location = new System.Drawing.Point(162, 77);
+            this.txtClassCode.Margin = new System.Windows.Forms.Padding(1);
+            this.txtClassCode.Name = "txtClassCode";
+            this.txtClassCode.Size = new System.Drawing.Size(306, 23);
+            this.txtClassCode.TabIndex = 9;
             // 
             // Username
             // 
@@ -75,9 +75,9 @@ namespace MyApp.Forms
             this.Username.Location = new System.Drawing.Point(22, 77);
             this.Username.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.Username.Name = "Username";
-            this.Username.Size = new System.Drawing.Size(45, 15);
+            this.Username.Size = new System.Drawing.Size(44, 15);
             this.Username.TabIndex = 8;
-            this.Username.Text = "Tên lớp";
+            this.Username.Text = "Mã lớp";
             // 
             // txtStudentName
             // 
@@ -227,7 +227,7 @@ namespace MyApp.Forms
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtStudentName);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtClassName);
+            this.Controls.Add(this.txtClassCode);
             this.Controls.Add(this.Username);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(1);
@@ -242,7 +242,7 @@ namespace MyApp.Forms
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtClassName;
+        private System.Windows.Forms.TextBox txtClassCode;
         private System.Windows.Forms.Label Username;
         private System.Windows.Forms.TextBox txtStudentName;
         private System.Windows.Forms.Label label2;

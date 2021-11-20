@@ -77,7 +77,7 @@ namespace MyApp.Forms
             btnDelete.Enabled = selectedItem != null;
             btnInsert.Enabled = selectedItem != null;
             if (selectedItem != null) {
-                txtClassName.Text = selectedItem.Cells[0].FormattedValue.ToString();
+                txtClassCode.Text = selectedItem.Cells[0].FormattedValue.ToString();
                 txtStudentName.Text = selectedItem.Cells[1].FormattedValue.ToString();
                 txtUsername.Text = selectedItem.Cells[2].FormattedValue.ToString();
                 txtAddress.Text = selectedItem.Cells[3].FormattedValue.ToString(); 
@@ -132,15 +132,14 @@ namespace MyApp.Forms
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            studentRepository.InsertStudent(txtClassName.Text, txtStudentName.Text, txtUsername.Text, txtAddress.Text);
+                studentRepository.InsertStudent(txtClassCode.Text, txtStudentName.Text, txtUsername.Text, txtAddress.Text);
+                txtClassCode.Text = "";
+                txtStudentName.Text = "";
+                txtUsername.Text = "";
+                txtAddress.Text = "";
         }
-
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            txtClassName.Text = "";
-            txtStudentName.Text = "";
-            txtUsername.Text = "";
-            txtAddress.Text = "";
             btnSave.Enabled = true;
         }
     }
