@@ -3,18 +3,20 @@
 USE master
 GO
 -- Create the new database if it does not exist already
-IF NOT EXISTS (
-    SELECT [name]
-        FROM sys.databases
-        WHERE [name] = N'Student_Management'
-)
+
+--IF NOT EXISTS (
+--    SELECT [name]
+--        FROM sys.databases
+--        WHERE [name] = N'Student_Management'
+--)
+
 --Trường hợp nếu dùng docker thì có thể ko cần tạo database dưới
 --Vì docker có thể tạo nhiều container SQL sever từ 1 images mà ko cần thêm dung lượng
 --Và nếu dùng nhiều database trong một container thì sẽ có thể rơi vào trường hợp bị lỗi và mất cả chì lẫn chài 
 --Thay vì chỉ mất 1 database
 
-CREATE DATABASE Student_Management;
-GO
+--CREATE DATABASE Student_Management;
+--
 
 -- --------------------------------------------------------
 CREATE TABLE tblclass (

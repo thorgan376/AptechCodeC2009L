@@ -27,6 +27,7 @@ namespace MyApp.Forms
             btnExportXML.Enabled = false;
             btnDelete.Enabled = false;
             btnInsert.Enabled = false;
+            btnUpdate.Enabled = false;
         }
         
         private void btnQuery_Click(object sender, EventArgs e)
@@ -34,6 +35,7 @@ namespace MyApp.Forms
             FillDataToGridView();
             btnExportXML.Enabled = true;
             btnInsert.Enabled=true;
+            btnUpdate.Enabled=true;
         }
         private void FillDataToGridView() {
             DataSet dataSet = studentRepository.GetStudentsDataSet();
@@ -41,6 +43,7 @@ namespace MyApp.Forms
             //Set AutoGenerateColumns False Because We only need 4 Columns not all the columns
 
             dataGridView.AutoGenerateColumns = false;
+            dataGridView.AllowUserToAddRows = false;
             dataGridView.ReadOnly = true;
             //Set Columns Count: Tạo các cột trước để fetch dữ liệu vào, ko có nó sẽ lỗi
             dataGridView.DataSource = null;
@@ -75,7 +78,6 @@ namespace MyApp.Forms
         {
             var selectedItem = dataGridView.SelectedRows.Count > 0 ? dataGridView.SelectedRows[0] : null;
             btnDelete.Enabled = selectedItem != null;
-            btnInsert.Enabled = selectedItem != null;
             if (selectedItem != null) {
                 txtClassCode.Text = selectedItem.Cells[0].FormattedValue.ToString();
                 txtStudentName.Text = selectedItem.Cells[1].FormattedValue.ToString();
@@ -140,7 +142,22 @@ namespace MyApp.Forms
         }
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            btnSave.Enabled = true;
+            if (string.IsNullOrEmpty(this.txtClassCode.Text) ||
+                string.IsNullOrEmpty(this.txtAddress.Text) ||
+                string.IsNullOrEmpty(this.txtStudentName.Text) ||
+                string.IsNullOrEmpty(this.txtUsername.Text))
+            {
+                MessageBox.Show("All field is required","Remmember ?!");
+            }
+            else
+            {
+                btnSave.Enabled = true;
+            }  
+        }
+
+        private void btnExitStudentList_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

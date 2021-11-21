@@ -10,8 +10,10 @@ namespace MyApp.Repositories
 {
     public class Database
     {
-        //private const string SERVER_NAME = "DESKTOP-7PS7HG8";
-        private const string SERVER_NAME = "DESKTOP-KCDQ3PV\\SQLEXPRESS";
+        //cách làm khi có SQL Sever SSMS ở bên ngoài
+        private const string SERVER_NAME = "LAPTOP-O9O0F0II";
+        //dòng dưới của PC, dòng trên của Laptop
+        //private const string SERVER_NAME = "DESKTOP-KCDQ3PV\\SQLEXPRESS";
         private const string PORT = "1433";
         private const string USERNAME = "sa";
         private const string PASSWORD = "Ghjkl;1234";
@@ -33,13 +35,9 @@ namespace MyApp.Repositories
         
         public SqlConnection GetConnection()
         {
-            //string connectionString = $"Server={SERVER_NAME},{PORT}\\SQLEXPRESS;" +
-
-            /*string connectionString = $"Server=(localdb)\\mssqllocaldb;" +
-              $"Database={DB_NAME}" +
-                $";User Id={USERNAME};Password={PASSWORD};"; */
-            // CODE cũ của thầy
-            string connectionString = $"Server = {SERVER_NAME}; Trusted_Connection=True; Database = {DB_NAME}; User Id = {USERNAME}; Password = '{PASSWORD}';";
+        // connection string Máy PC: 
+        string connectionString = $"Server = {SERVER_NAME}; Trusted_Connection=True;" +
+                $" Database = {DB_NAME}; User Id = {USERNAME}; Password = '{PASSWORD}';";
             if (connection != null)
             {
                 connection.Close();

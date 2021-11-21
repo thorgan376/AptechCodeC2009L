@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MyApp.Database;
 
 namespace MyApp.Repositories
 {
@@ -13,8 +14,9 @@ namespace MyApp.Repositories
     {
         public Student Login(String username, String password)
         {
-            try {                
-                SqlConnection connection = Database.getInstance().GetConnection();                      
+            try {
+                SqlConnection connection = Database.getInstance().GetConnection();
+                //SqlConnection connection = Database.getInstance().GetConnection();                      
                 string sql = @"SELECT * FROM tblStudent WHERE UserNm = @username AND Password=@password";
                 SqlCommand command = new SqlCommand(sql, connection);
                 command.Parameters.AddWithValue("@username", username);
@@ -35,7 +37,7 @@ namespace MyApp.Repositories
                 }
                 return null;
             }
-            catch (Exception e) {
+            catch (Exception) {
                 throw;                                
             }
         }

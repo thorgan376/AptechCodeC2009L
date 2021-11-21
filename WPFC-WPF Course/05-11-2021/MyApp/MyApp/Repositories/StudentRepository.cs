@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MyApp.Database;
 
 namespace MyApp.Repositories
 {
@@ -22,6 +23,7 @@ namespace MyApp.Repositories
             try
             {
                 using (SqlConnection connection = Database.getInstance().GetConnection())
+                //using (SqlConnection connection = Database.getInstance().GetConnection())
                 {
                     string sqlStatement = "INSERT into tblStudent (TenSV,DiaChi,MaLop,UserNm)" +
                         "VALUES (@TenSV,@DiaChi,@MaLop,@UserNm)";
@@ -46,8 +48,8 @@ namespace MyApp.Repositories
         {
             try
             {
-
                 SqlConnection connection = Database.getInstance().GetConnection();
+                //SqlConnection connection = Database.getInstance().GetConnection();
                 string sql = "SELECT " +
                                 "	tblClass.TenLop," +
                                 "	tblStudent.TenSV," +
