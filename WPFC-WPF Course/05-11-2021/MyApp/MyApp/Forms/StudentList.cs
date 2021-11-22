@@ -9,9 +9,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+enum InsertOrUpdate {
+    Insert,
+    Update
+}
 namespace MyApp.Forms
 {
+
     public partial class StudentList : Form
     {
         private StudentRepository studentRepository = new StudentRepository();        
@@ -45,6 +49,7 @@ namespace MyApp.Forms
             dataGridView.AutoGenerateColumns = false;
             dataGridView.AllowUserToAddRows = false;
             dataGridView.ReadOnly = true;
+            dataGridView.RowHeadersVisible = false;
             //Set Columns Count: Tạo các cột trước để fetch dữ liệu vào, ko có nó sẽ lỗi
             dataGridView.DataSource = null;
             dataGridView.ColumnCount = 4 ;
@@ -66,8 +71,20 @@ namespace MyApp.Forms
             dataGridView.Columns[3].HeaderText = "Dia chi";
             dataGridView.Columns[3].DataPropertyName = "DiaChi";
 
-            dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridView.Columns[dataGridView.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            //dataGridView.AutoSizeColuzmnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            //dataGridView.Columns[dataGridView.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            foreach (DataGridViewColumn column in dataGridView.Columns)
+            {
+                // Store Auto Sized Widths:
+                //int colw = dataGridView.Columns[i].Width;
+
+                // Remove AutoSizing:
+                //dataGridView.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+
+                // Set Width to calculated AutoSize value:
+                column.Width = dataGridView.Width / dataGridView.Columns.Count;
+            }
 
             dataGridView.DataSource = dataSet.Tables[0];
             dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;

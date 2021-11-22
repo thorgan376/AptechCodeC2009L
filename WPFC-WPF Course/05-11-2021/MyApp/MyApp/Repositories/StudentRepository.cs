@@ -14,15 +14,30 @@ namespace MyApp.Repositories
     public class StudentRepository
     {
 
-        public void DeleteStudentByID(int studentID)
+        public void DeleteStudentByID(string userNm)
         {
+            try
+            {
+                using (SqlConnection connection = DatabaseConn.getInstance().GetConnection())
+                {
+                    string sqlStatement = "DELETE FROM tblStudent WHERE UserNm='@UserNm';";
 
+                    using SqlCommand commandInsert = new(sqlStatement);
+                    commandInsert.Connection = connection;
+                    commandInsert.Parameters.Add("@UserNm", SqlDbType.VarChar, 30).Value = userNm;
+                    commandInsert.ExecuteNonQuery();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
         public void InsertStudent(string maLop, string tenSV, string userNm, string diachi)
         {
             try
             {
-                using (SqlConnection connection = Database.getInstance().GetConnection())
+                using (SqlConnection connection = DatabaseConn.getInstance().GetConnection())
                 //using (SqlConnection connection = Database.getInstance().GetConnection())
                 {
                     string sqlStatement = "INSERT into tblStudent (TenSV,DiaChi,MaLop,UserNm)" +
@@ -48,7 +63,7 @@ namespace MyApp.Repositories
         {
             try
             {
-                SqlConnection connection = Database.getInstance().GetConnection();
+                SqlConnection connection = DatabaseConn.getInstance().GetConnection();
                 //SqlConnection connection = Database.getInstance().GetConnection();
                 string sql = "SELECT " +
                                 "	tblClass.TenLop," +

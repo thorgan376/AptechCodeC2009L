@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MyApp.Repositories
 {
-    public class Database
+    public class DatabaseConn
     {
         //cách làm khi có SQL Sever SSMS ở bên ngoài
         private const string SERVER_NAME = "LAPTOP-O9O0F0II";
@@ -20,15 +20,15 @@ namespace MyApp.Repositories
         private const string DB_NAME = "master";
         private SqlConnection connection = null;
         //singleton object
-        private static Database instance;
+        private static DatabaseConn instance;
 
-        private Database() {           
+        private DatabaseConn() {           
         }
-        public static Database getInstance()
+        public static DatabaseConn getInstance()
         {
             if (instance == null)
             {
-                instance = new Database();
+                instance = new DatabaseConn();
             }
             return instance;
         }
