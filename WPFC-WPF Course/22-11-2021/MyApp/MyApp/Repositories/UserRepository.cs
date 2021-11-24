@@ -12,12 +12,12 @@ namespace MyApp.Repositories
 {
     public class UserRepository
     {
-        public Student Login(string username, string password)
+        public Student Login(String username, String password)
         {
             try {
-                SqlConnection connection = Database.getInstance().GetConnection();
+                SqlConnection connection = DatabaseConn.getInstance().GetConnection();
                 //SqlConnection connection = Database.getInstance().GetConnection();                      
-                string sql = @"SELECT * FROM tblStudent WHERE UserNm = @username AND Password = @password";
+                string sql = @"SELECT * FROM tblStudent WHERE UserNm = @username AND Password=@password";
                 SqlCommand command = new SqlCommand(sql, connection);
                 command.Parameters.AddWithValue("@username", username);
                 command.Parameters.AddWithValue("@password", password);

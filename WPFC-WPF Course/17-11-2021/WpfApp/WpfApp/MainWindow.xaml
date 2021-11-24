@@ -1,0 +1,44 @@
+﻿<Window x:Class="WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel Orientation="Horizontal" 
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left" 
+                    Background="#0564C8"  
+                    Width="800"
+                    Height="40">
+            
+            <Image 
+                Height="20" Width="20"   
+                Margin="10, 0, 10, 0"
+                Source="Images/menu.png"/>
+            <Image 
+                Height="20" Width="20"                 
+                Margin="0, 0, 10, 0"
+                Source="Images/thumb-up.png"/>
+            <Image 
+                Height="20" Width="20"                 
+                Margin="0, 0, 10, 0"
+                Source="Images/notification.png"/>
+            <Image 
+                Height="20" Width="20"                 
+                Margin="0, 0, 10, 0"
+                Source="Images/settings.png"/>
+            <Image 
+                Height="20" Width="20"                 
+                Margin="0, 0, 10, 0"
+                Source="Images/user.png"/>
+            
+
+        </StackPanel >
+                
+
+
+    </Grid>
+</Window>

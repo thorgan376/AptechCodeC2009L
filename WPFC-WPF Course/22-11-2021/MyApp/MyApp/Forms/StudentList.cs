@@ -46,7 +46,7 @@ namespace MyApp.Forms
         private void FillDataToGridView() {
             DataSet dataSet = studentRepository.GetStudentsDataSet();
 
-            //Set AutoGenerateColumns False bởi vì chỉ cần 4 cột, không cần tất cả các cột
+            //Set AutoGenerateColumns False Because We only need 4 Columns not all the columns
 
             dataGridView.AutoGenerateColumns = false;
             dataGridView.AllowUserToAddRows = false;
@@ -58,7 +58,7 @@ namespace MyApp.Forms
             dataGridView.DataSource = null;
             dataGridView.ColumnCount = 4 ;
             
-            //Đặt thông tin của các column trong dataGridView dưới đây
+            //Add Columns Down Here
             dataGridView.Columns[0].Name = "TenLop";
             dataGridView.Columns[0].HeaderText = "Ten lop";
             dataGridView.Columns[0].DataPropertyName = "TenLop";
@@ -75,7 +75,6 @@ namespace MyApp.Forms
             dataGridView.Columns[3].HeaderText = "Dia chi";
             dataGridView.Columns[3].DataPropertyName = "DiaChi";
 
-            //cách cũ: chia các cột nhưng ko đều
             //dataGridView.AutoSizeColuzmnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             //dataGridView.Columns[dataGridView.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
@@ -88,8 +87,6 @@ namespace MyApp.Forms
                 //dataGridView.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
 
                 // Set Width to calculated AutoSize value:
-                // Cách trên đúng nhất vì các cột sẽ tự chia đúng với độ dài của dữ liệu trong ô,
-                // còn cách dưới thì chia đều khoảng cách giữa các cột
                 column.Width = dataGridView.Width / dataGridView.Columns.Count;
             }
 
@@ -107,8 +104,7 @@ namespace MyApp.Forms
                 txtClassCode.Text = selectedItem.Cells[0].FormattedValue.ToString();
                 txtStudentName.Text = selectedItem.Cells[1].FormattedValue.ToString();
                 txtUsername.Text = selectedItem.Cells[2].FormattedValue.ToString();
-                // vì sao phải để một biến bằng cái này vì để tránh trg hợp ng dùng chưa chọn hàng mà đã ấn nút xóa
-                this.selectedUserName = selectedItem.Cells[2].FormattedValue.ToString();
+               this.selectedUserName = selectedItem.Cells[2].FormattedValue.ToString();
                 txtAddress.Text = selectedItem.Cells[3].FormattedValue.ToString(); 
             }
             
@@ -124,6 +120,7 @@ namespace MyApp.Forms
             }
             try
             {
+                
                 var confirmResult = MessageBox.Show("Are you sure to delete this item ??",
                                          "Confirm Delete!!",
                                          MessageBoxButtons.YesNo);
@@ -131,10 +128,11 @@ namespace MyApp.Forms
                 {                    
                     studentRepository.DeleteStudentByID(selectedUserName);
                     selectedUserName = "";
+                    btnSave.Enabled = true;
                     FillDataToGridView();
                 }
                 else {
-                    // If 'No' or anything else, do nothing.
+                    // If 'No', do nothing.
                 }
             }
             catch (Exception)
@@ -147,11 +145,11 @@ namespace MyApp.Forms
         {
             try
             {
-                if (dataGridView.Rows.Count == 0)
+                if (dataGridView.DataSource == null)
                 {
                     MessageBox.Show("No data to export", "Export XML Information", MessageBoxButtons.OK);
                 }
-                else if (dataGridView.Rows.Count != 0)
+                else if (dataGridView.DataSource != null)
                 {
                     MessageBox.Show("Export Successfully", "Export XML Information", MessageBoxButtons.OK);
                 }

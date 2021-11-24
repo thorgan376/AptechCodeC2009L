@@ -19,13 +19,14 @@ namespace MyApp.Forms
         public Login()
         {
             InitializeComponent();
-            // điền mật khẩu trước để đỡ mất thời gian
             txtUsername.Text = "hungnv";
             txtPassword.Text = "123456";
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            //MessageBox.Show($"username: {txtUsername.Text}, address = {txtPassword.Text}");
+            //Login success
             try {
                 Student student = userRepository.Login(txtUsername.Text,
                     txtPassword.Text);
@@ -45,7 +46,7 @@ namespace MyApp.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Login Form error: {ex.Message}");
+                MessageBox.Show($"Internal error: {ex.Message}");
             }
             
         }
