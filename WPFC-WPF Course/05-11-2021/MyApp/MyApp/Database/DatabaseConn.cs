@@ -10,7 +10,14 @@ namespace MyApp.Database
 {
     public class DatabaseConn
     {
-        //cách làm khi có SQL Sever SSMS ở bên ngoài
+        /*Cách tạo Database cho ứng dụng:
+        B1: Trong thư mục này (Database), add New Item "Service-based Database"
+        B2: Mở Sever Explorer trong mục View và add thêm Data Connection
+        B3: Trong dòng Data Source, đổi Microsoft SQL Sever thành Microsoft SQL Sever Database File
+        B4: Trong dòng Database File Name (new or existing), tìm đến và chọn file .mdf vừa tạo trong thư mục này
+        B5: Cuối cùng, thêm new query và chạy phần CODE SQL có sẵn,
+        And Run this app -You are done ~ NICE- */
+
         private const string CONNECTIONSTRING = @"Data Source=(LocalDB)\MSSQLLocalDB;"+
             @"AttachDbFilename=C:\Users\Thai Son\Desktop\Aptech\AptechCodeC2009L\AptechCodeC2009L\WPFC-WPF Course\05-11-2021\MyApp\MyApp\Database\Database.mdf;"+
             @"Integrated Security=True;Connect Timeout=30;MultipleActiveResultSets=True;";
