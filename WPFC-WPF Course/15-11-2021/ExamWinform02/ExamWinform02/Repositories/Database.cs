@@ -10,7 +10,9 @@ namespace ExamWinform02.Repositories
     public class Database
     {
         //private const string SERVER_NAME = "DESKTOP-7PS7HG8";        
-        private const string CONNECTION_STRING = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\sunli\Documents\code\Aptech\C2009L\WFPC#\12-11-2021\ExamWinform02\ExamWinform02\Database.mdf;MultipleActiveResultSets=true;Integrated Security=True";        
+        private const string CONNECTION_STRING = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
+                                                 @"AttachDbFilename=C:\Users\Thai Son\Desktop\Aptech\AptechCodeC2009L\AptechCodeC2009L\WPFC-WPF Course\15-11-2021\ExamWinform02\ExamWinform02\Database.mdf;" +
+                                                 @"Integrated Security=True; MultipleActiveResultSets=True;";        
         private SqlConnection connection = null;
         //singleton object
         private static Database instance;
@@ -31,9 +33,13 @@ namespace ExamWinform02.Repositories
         {                        
             try
             {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
                 connection = new SqlConnection(CONNECTION_STRING);
                 connection.Open();
-                SqlCommand command = new SqlCommand("USE employeeManagement;", connection);
+                SqlCommand command = new SqlCommand(@"USE master;", connection);
                 command.ExecuteReader();
                 command.Dispose();
 
@@ -42,7 +48,7 @@ namespace ExamWinform02.Repositories
             catch (Exception ex)
             {
                 connection = null;
-                Console.WriteLine($"Can not open connection: {ex.ToString()}");
+                Console.WriteLine($"Can not open connection: {ex}");
                 return connection;
             }
 

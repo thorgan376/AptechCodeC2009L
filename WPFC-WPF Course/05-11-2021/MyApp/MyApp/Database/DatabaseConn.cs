@@ -11,10 +11,9 @@ namespace MyApp.Database
     public class DatabaseConn
     {
         //cách làm khi có SQL Sever SSMS ở bên ngoài
-        
-        //private const string CONNECTIONSTRING = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Thai Son\\Desktop\\Aptech\\AptechCodeC2009L\\AptechCodeC2009L\\WPFC-WPF Course\\05-11-2021\\MyApp\\MyApp\\Database\\StudentManagement.mdf;Integrated Security=True";
-        private const string CONNECTIONSTRING = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Thai Son\Desktop\Aptech\AptechCodeC2009L\AptechCodeC2009L\WPFC-WPF Course\05-11-2021\MyApp\MyApp\Database\StudentManagement.mdf;Integrated Security = True";
-        //"C:\Users\Thai Son\Desktop\Aptech\AptechCodeC2009L\AptechCodeC2009L\WPFC-WPF Course\05-11-2021\MyApp\MyApp\Database\StudentManagement.mdf";
+        private const string CONNECTIONSTRING = @"Data Source=(LocalDB)\MSSQLLocalDB;"+
+            @"AttachDbFilename=C:\Users\Thai Son\Desktop\Aptech\AptechCodeC2009L\AptechCodeC2009L\WPFC-WPF Course\05-11-2021\MyApp\MyApp\Database\Database.mdf;"+
+            @"Integrated Security=True;Connect Timeout=30;MultipleActiveResultSets=True;";
         private SqlConnection conn = null;
         //singleton object
         private static DatabaseConn instance;
@@ -33,14 +32,17 @@ namespace MyApp.Database
 
         public SqlConnection GetConnection()
         {
-            if (conn != null)
-            {
-                conn.Close();
-            }
-            conn = new SqlConnection(CONNECTIONSTRING);
             try
             {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+                conn = new SqlConnection(CONNECTIONSTRING);
                 conn.Open();
+                SqlCommand cmd = new SqlCommand("USE master", conn);
+                cmd.ExecuteReader();
+                cmd.Dispose();
                 return conn;
             }
             catch (Exception ex)

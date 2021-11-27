@@ -18,7 +18,7 @@ namespace MyApp.Repositories
         {
             try
             {
-                using (SqlConnection connection = Database.getInstance().GetConnection())
+                using (SqlConnection connection = DatabaseConn.getInstance().GetConnection())
                 {
                     string sqlStatement = "DELETE FROM tblStudent WHERE UserNm=@UserNm;";
 
@@ -37,7 +37,7 @@ namespace MyApp.Repositories
         {
             try
             {
-                using (SqlConnection connection = Database.getInstance().GetConnection())
+                using (SqlConnection connection = DatabaseConn.getInstance().GetConnection())
                 {
                     string sqlStatement = "INSERT into tblStudent (TenSV,DiaChi,MaLop,UserNm)" +
                         "VALUES (@TenSV,@DiaChi,@MaLop,@UserNm)";
@@ -62,8 +62,7 @@ namespace MyApp.Repositories
         {
             try
             {
-                SqlConnection connection = Database.getInstance().GetConnection();
-                //SqlConnection connection = Database.getInstance().GetConnection();
+                SqlConnection connection = DatabaseConn.getInstance().GetConnection();
                 string sql = "SELECT " +
                                 "	tblClass.TenLop," +
                                 "	tblStudent.TenSV," +

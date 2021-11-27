@@ -26,7 +26,8 @@ namespace ExamWinform02.Repositories
                 {
                     Console.WriteLine(String.Format("{0}", reader[0]));
                     Department department = new Department();
-                    //student.Id = Convert.ToInt32(reader[0]);                                        
+                    department.DeptName= reader[1].ToString();
+                    department.DeptID = int.Parse(reader[0].ToString());                                        
                     //return employee;
                     result.Add(department);
                 }

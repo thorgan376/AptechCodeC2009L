@@ -166,7 +166,6 @@ namespace MyApp.Forms
             if (insertOrUpdate == InsertOrUpdate.Insert) {
                 studentRepository.InsertStudent(txtClassCode.Text, txtStudentName.Text, txtUsername.Text, txtAddress.Text);
             }
-                
                 txtClassCode.Text = "";
                 txtStudentName.Text = "";
                 txtUsername.Text = "";
@@ -181,7 +180,7 @@ namespace MyApp.Forms
                 string.IsNullOrEmpty(this.txtStudentName.Text) ||
                 string.IsNullOrEmpty(this.txtUsername.Text))
             {
-                MessageBox.Show("All field is required","Remmember ?!");
+                MessageBox.Show("All field is required","Remmember");
             }
             else
             {
@@ -192,6 +191,15 @@ namespace MyApp.Forms
         private void btnExitStudentList_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            //this is not in the test so I just use it for fun
+            txtClassCode.Text = "";
+            txtStudentName.Text = "";
+            txtUsername.Text = "";
+            txtAddress.Text = "";
         }
     }
 }

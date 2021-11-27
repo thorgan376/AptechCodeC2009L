@@ -33,9 +33,15 @@ namespace ExamWinform02
 
         private void TreeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            Console.Write("haha");
+            
             //Get selected department here
-            List<Employee> filteredEmployees =  employeeRepository.GetEmployeesFromDepartmentId(selectedDepartment.DeptID);
+            selectedDepartment = (Department)treeView.SelectedNode.Tag;
+            
+            if (selectedDepartment != null)
+            {
+                List<Employee> filteredEmployees = employeeRepository.GetEmployeesFromDepartmentId(selectedDepartment.DeptID);
+                Console.Write("haha");
+            }
             //fetch employees to the ListView            
 
         }
@@ -47,7 +53,8 @@ namespace ExamWinform02
             treeView.Nodes.Clear();
             treeView.Nodes.Add("Employees");
             foreach (Department department in departments) {
-                treeView.Nodes[0].Nodes.Add(department.DeptName);
+                TreeNode node = treeView.Nodes[0].Nodes.Add(department.DeptName);
+                node.Tag = department;
             }                     
             treeView.EndUpdate();
         }
