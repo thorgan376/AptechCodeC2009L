@@ -39,7 +39,7 @@ namespace ExamWinform02.Repositories
                 }
                 connection = new SqlConnection(CONNECTION_STRING);
                 connection.Open();
-                SqlCommand command = new SqlCommand(@"USE master;", connection);
+                SqlCommand command = new SqlCommand("Select * from Department;", connection);
                 command.ExecuteReader();
                 command.Dispose();
 
