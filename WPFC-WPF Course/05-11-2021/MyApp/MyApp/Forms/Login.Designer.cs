@@ -30,7 +30,7 @@ namespace MyApp.Forms
         private void InitializeComponent()
         {
             this.Username = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.Password = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
@@ -48,15 +48,15 @@ namespace MyApp.Forms
             this.Username.TabIndex = 0;
             this.Username.Text = "Username";
             // 
-            // label2
+            // Password
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(84, 146);
-            this.label2.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 15);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Password";
+            this.Password.AutoSize = true;
+            this.Password.Location = new System.Drawing.Point(84, 146);
+            this.Password.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.Password.Name = "Password";
+            this.Password.Size = new System.Drawing.Size(57, 15);
+            this.Password.TabIndex = 1;
+            this.Password.Text = "Password";
             // 
             // txtUsername
             // 
@@ -120,7 +120,7 @@ namespace MyApp.Forms
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.Password);
             this.Controls.Add(this.Username);
             this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "Login";
@@ -133,7 +133,7 @@ namespace MyApp.Forms
         #endregion
 
         private System.Windows.Forms.Label Username;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label Password;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnLogin;

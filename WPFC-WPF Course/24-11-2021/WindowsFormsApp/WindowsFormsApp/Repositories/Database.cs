@@ -12,8 +12,8 @@ namespace WindowsFormsApp
 {
     public class Database
     {
-        private const string DATA_SOURCE = "LAPTOP-O9O0F0II";
-        private const string Initial_Catalog = "EmployeeWPF";
+        private const string DATA_SOURCE = @"DESKTOP-KCDQ3PV\SQLEXPRESS";
+        private const string Initial_Catalog ="master";
         private const string USER_ID = "sa";
         private const string PASSWORD = "Ghjkl;1234";
         private static Database instance;
@@ -27,12 +27,12 @@ namespace WindowsFormsApp
         private SqlConnection connection = null;
         public SqlConnection GetConnection()
         {
-            string CONNECTION_STRING = $"Data Source={DATA_SOURCE};Initial Catalog={Initial_Catalog};User ID={USER_ID};Password='{PASSWORD}'";
+            string connectionString = $"Data Source={DATA_SOURCE};Initial Catalog={Initial_Catalog};User ID={USER_ID};Password='{PASSWORD}'";
             if (connection != null)
             {
                 connection.Close();
             }
-            connection = new SqlConnection(CONNECTION_STRING);
+            connection = new SqlConnection(connectionString);
             try
             {
                 return connection;
@@ -49,7 +49,7 @@ namespace WindowsFormsApp
             Department department = null;
             try
             {
-                string sql = $"SELECT * FROM Departments WHERE DeptID = {departmentId}";//SQL Injection
+                string sql = $"SELECT * FROM Departments WHERE DeptID = {departmentId}";
                 SqlCommand command = new SqlCommand(sql, GetConnection());
                 connection.Open();
                 using (SqlDataReader sqlDataReader = command.ExecuteReader())
@@ -80,7 +80,7 @@ namespace WindowsFormsApp
         {            
             try
             {
-                string sql = $"DELETE FROM Employees WHERE EmployeeID = '@employeeId'";//SQL Injection
+                string sql = $"DELETE FROM Employees WHERE EmployeeID = '@employeeId'";
                 SqlCommand command = new SqlCommand(sql, GetConnection());
                 command.Parameters.AddWithValue("@employeeId", employeeId);
                 connection.Open();
@@ -100,7 +100,7 @@ namespace WindowsFormsApp
             try
             {
                 string sql = $"INSERT INTO Employees(EmployeeName, DeptID, Gender, BirthDate, Tel, Address) " +
-                    $"VALUES(@employeeName, @deptID, @gender, @birthDate, @telephone,@address)";//SQL Injection
+                    $"VALUES(@employeeName, @deptID, @gender, @birthDate, @telephone,@address)";
                 SqlCommand command = new SqlCommand(sql, GetConnection());
                 command.Parameters.AddWithValue("@employeeName", employee.EmployeeName);
                 command.Parameters.AddWithValue("@deptID", employee.DepartmentID);
@@ -125,7 +125,7 @@ namespace WindowsFormsApp
             List<Employee> employees = new List<Employee>();
             try
             {
-                string sql = $"SELECT * FROM Employees WHERE DeptID = {departmentId}";//SQL Injection
+                string sql = $"SELECT * FROM Employees WHERE DeptID = {departmentId}";
                 SqlCommand command = new SqlCommand(sql, GetConnection());                
                 connection.Open();
                 using (SqlDataReader sqlDataReader = command.ExecuteReader())

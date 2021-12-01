@@ -11,7 +11,7 @@ using WindowsFormsApp.Models;
 
 namespace WindowsFormsApp
 {
-    public partial class DetailEmployeeForm : Form
+    public partial class EmployeeDetail : Form
     {
         private Department department;
         private List<Department> departments;
@@ -41,7 +41,7 @@ namespace WindowsFormsApp
         {            
             //MessageBox.Show($"Selected value = {comboBoxDepartment.SelectedValue}");
         }
-        public DetailEmployeeForm()
+        public EmployeeDetail()
         {
             InitializeComponent();
             departments = Database.GetInstance().GetAllDepartments();
@@ -53,7 +53,7 @@ namespace WindowsFormsApp
         }
         private void radioButtonGender_CheckedChanged(object sender, EventArgs e)
         {
-            /*
+            
             if ((sender as RadioButton).Name.Equals("radioButtonMale"))
             {
                 radioButtonFemale.Checked = false;
@@ -61,7 +61,7 @@ namespace WindowsFormsApp
             else {
                 radioButtonMale.Checked = false;
             }            
-            */
+            
         }
         
 

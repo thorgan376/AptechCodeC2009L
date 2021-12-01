@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8E7911A6-0C0C-471B-8ADD-12FF19750A51}</ProjectGuid>
+    <ProjectGuid>{BE80A1E4-2F06-4C0E-A24E-BC36EC1CEE88}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>WindowsFormsApp</RootNamespace>
-    <AssemblyName>WindowsFormsApp</AssemblyName>
+    <RootNamespace>DepartmentEmployee</RootNamespace>
+    <AssemblyName>DepartmentEmployee</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,29 +46,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Repositories\Database.cs" />
-    <Compile Include="Forms\EmployeeDetail.cs">
+    <Compile Include="Forms\EmployeeDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\EmployeeDetail.Designer.cs">
-      <DependentUpon>EmployeeDetail.cs</DependentUpon>
+    <Compile Include="Forms\EmployeeDetails.Designer.cs">
+      <DependentUpon>EmployeeDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Department.cs" />
-    <Compile Include="Models\Employee.cs" />
     <Compile Include="Forms\EmployeeList.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\EmployeeList.Designer.cs">
       <DependentUpon>EmployeeList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Department.cs" />
+    <Compile Include="Models\Employee.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\EmployeeDetail.resx">
-      <DependentUpon>EmployeeDetail.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\EmployeeList.resx">
-      <DependentUpon>EmployeeList.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="Repositories\Database.cs" />
+    <Compile Include="Repositories\DepartmentRepo.cs" />
+    <Compile Include="Repositories\EmployeeRepo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -91,6 +87,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

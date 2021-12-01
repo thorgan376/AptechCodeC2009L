@@ -15,7 +15,7 @@ namespace MyApp.Repositories
         public Student Login(string username, string password)
         {
             try {
-                SqlConnection connection = DatabaseConn.getInstance().GetConnection();
+                SqlConnection connection = Database.getInstance().GetConnection();
                 //SqlConnection connection = Database.getInstance().GetConnection();                      
                 string sql = @"SELECT * FROM tblStudent WHERE UserNm = @username AND Password = @password";
                 SqlCommand command = new SqlCommand(sql, connection);

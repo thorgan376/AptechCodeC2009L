@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp
 {
-    partial class MainForm
+    partial class EmployeeList
     {
         /// <summary>
         /// Required designer variable.
@@ -55,7 +55,8 @@
             this.employeesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1664, 49);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(2, 1, 0, 1);
+            this.menuStrip1.Size = new System.Drawing.Size(638, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -66,25 +67,25 @@
             this.changePasswordToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(87, 45);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(37, 22);
             this.toolStripMenuItem1.Text = "&File";
             // 
             // logOffToolStripMenuItem
             // 
             this.logOffToolStripMenuItem.Name = "logOffToolStripMenuItem";
-            this.logOffToolStripMenuItem.Size = new System.Drawing.Size(421, 54);
+            this.logOffToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.logOffToolStripMenuItem.Text = "Log off";
             // 
             // changePasswordToolStripMenuItem
             // 
             this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(421, 54);
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.changePasswordToolStripMenuItem.Text = "Change password";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(421, 54);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -94,20 +95,20 @@
             this.employeesProfileToolStripMenuItem,
             this.searchingToolStripMenuItem});
             this.employeesToolStripMenuItem.Name = "employeesToolStripMenuItem";
-            this.employeesToolStripMenuItem.Size = new System.Drawing.Size(186, 45);
+            this.employeesToolStripMenuItem.Size = new System.Drawing.Size(76, 22);
             this.employeesToolStripMenuItem.Text = "Employees";
             // 
             // employeesProfileToolStripMenuItem
             // 
             this.employeesProfileToolStripMenuItem.Name = "employeesProfileToolStripMenuItem";
-            this.employeesProfileToolStripMenuItem.Size = new System.Drawing.Size(420, 54);
+            this.employeesProfileToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.employeesProfileToolStripMenuItem.Text = "Employees Profile";
             this.employeesProfileToolStripMenuItem.Click += new System.EventHandler(this.employeesProfileToolStripMenuItem_Click);
             // 
             // searchingToolStripMenuItem
             // 
             this.searchingToolStripMenuItem.Name = "searchingToolStripMenuItem";
-            this.searchingToolStripMenuItem.Size = new System.Drawing.Size(420, 54);
+            this.searchingToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.searchingToolStripMenuItem.Text = "Searching";
             // 
             // mainPanel
@@ -118,34 +119,38 @@
             this.mainPanel.Controls.Add(this.listViewEmployees);
             this.mainPanel.Controls.Add(this.treeViewDepartments);
             this.mainPanel.Controls.Add(this.label1);
-            this.mainPanel.Location = new System.Drawing.Point(0, 52);
+            this.mainPanel.Location = new System.Drawing.Point(0, 22);
+            this.mainPanel.Margin = new System.Windows.Forms.Padding(1);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(1586, 1071);
+            this.mainPanel.Size = new System.Drawing.Size(638, 442);
             this.mainPanel.TabIndex = 9;
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(972, 902);
+            this.btnClose.Location = new System.Drawing.Point(446, 378);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(1);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(266, 87);
+            this.btnClose.Size = new System.Drawing.Size(100, 36);
             this.btnClose.TabIndex = 13;
             this.btnClose.Text = "&Close";
             this.btnClose.UseVisualStyleBackColor = true;
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(604, 902);
+            this.btnDelete.Location = new System.Drawing.Point(273, 378);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(1);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(266, 87);
+            this.btnDelete.Size = new System.Drawing.Size(100, 36);
             this.btnDelete.TabIndex = 12;
             this.btnDelete.Text = "D&elete";
             this.btnDelete.UseVisualStyleBackColor = true;
             // 
             // btnInsert
             // 
-            this.btnInsert.Location = new System.Drawing.Point(240, 902);
+            this.btnInsert.Location = new System.Drawing.Point(90, 378);
+            this.btnInsert.Margin = new System.Windows.Forms.Padding(1);
             this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(266, 87);
+            this.btnInsert.Size = new System.Drawing.Size(100, 36);
             this.btnInsert.TabIndex = 11;
             this.btnInsert.Text = "&Insert";
             this.btnInsert.UseVisualStyleBackColor = true;
@@ -156,41 +161,45 @@
             this.listViewEmployees.FullRowSelect = true;
             this.listViewEmployees.HideSelection = false;
             this.listViewEmployees.HoverSelection = true;
-            this.listViewEmployees.Location = new System.Drawing.Point(607, 135);
+            this.listViewEmployees.Location = new System.Drawing.Point(228, 57);
+            this.listViewEmployees.Margin = new System.Windows.Forms.Padding(1);
             this.listViewEmployees.MultiSelect = false;
             this.listViewEmployees.Name = "listViewEmployees";
-            this.listViewEmployees.Size = new System.Drawing.Size(844, 668);
+            this.listViewEmployees.Size = new System.Drawing.Size(400, 282);
             this.listViewEmployees.TabIndex = 10;
             this.listViewEmployees.UseCompatibleStateImageBehavior = false;
             // 
             // treeViewDepartments
             // 
-            this.treeViewDepartments.Location = new System.Drawing.Point(47, 135);
+            this.treeViewDepartments.Location = new System.Drawing.Point(18, 57);
+            this.treeViewDepartments.Margin = new System.Windows.Forms.Padding(1);
             this.treeViewDepartments.Name = "treeViewDepartments";
-            this.treeViewDepartments.Size = new System.Drawing.Size(516, 668);
+            this.treeViewDepartments.Size = new System.Drawing.Size(196, 282);
             this.treeViewDepartments.TabIndex = 9;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(57, 25);
+            this.label1.Location = new System.Drawing.Point(21, 10);
+            this.label1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(436, 69);
+            this.label1.Size = new System.Drawing.Size(177, 29);
             this.label1.TabIndex = 8;
             this.label1.Text = "Employees List";
             // 
-            // MainForm
+            // EmployeeList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1664, 1260);
+            this.ClientSize = new System.Drawing.Size(638, 465);
             this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Margin = new System.Windows.Forms.Padding(1);
+            this.Name = "EmployeeList";
+            this.Text = "EmployeeList";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

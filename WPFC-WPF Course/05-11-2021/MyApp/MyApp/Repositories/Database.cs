@@ -14,9 +14,9 @@ namespace MyApp.Repositories
         //test cho hoạt động bằng cách dùng SQL Sever 201X, đăng nhập bằng SQL Authentication
         //Bật enable Both Window Authentication và SQL Sever Authentication trong Sever Property
         //Tên SEVER Và các phần khác có thể thay đổi tùy theo tên sever và database sử dụng.
-
-        private const string SERVER_NAME = "LAPTOP-O9O0F0II";
-        private const string PORT = "1433"; //Only use for docker
+        //Lưu ý, nên add thêm data Connection trong phần View => Sever Explorer 
+        //tên sever các thứ đã có ở dưới
+        private const string SERVER_NAME = @"DESKTOP-KCDQ3PV\SQLEXPRESS";
         private const string USERNAME = "sa";
         private const string PASSWORD = "Ghjkl;1234";
         private const string DB_NAME = "master";
@@ -37,8 +37,8 @@ namespace MyApp.Repositories
         
         public SqlConnection GetConnection()
         {
-        string connectionString = $"Server = {SERVER_NAME}; Trusted_Connection=True;" +
-                $" Database = {DB_NAME}; User Id = {USERNAME}; Password = '{PASSWORD}';";
+        string connectionString = $"Data Source = {SERVER_NAME}; Trusted_Connection=True;" +
+                $"Initial Catalog = {DB_NAME}; User ID = {USERNAME}; Password = '{PASSWORD}';";
             if (connection != null)
             {
                 connection.Close();

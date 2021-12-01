@@ -11,10 +11,10 @@ using WindowsFormsApp.Models;
 
 namespace WindowsFormsApp
 {
-    public partial class MainForm : Form
+    public partial class EmployeeList : Form
     {
         public Department Department { get; set; }
-        public MainForm()
+        public EmployeeList()
         {
             this.AutoSize = true;
             InitializeComponent();
@@ -83,10 +83,8 @@ namespace WindowsFormsApp
             }
         }
         private void MainForm_Load(object sender, EventArgs e)
-        {
-            
-            PopulateDataToTreeView();
-                       
+        { 
+            PopulateDataToTreeView();           
         }
 
         private void listViewEmployees_SelectedIndexChanged(object sender, EventArgs e)
@@ -101,7 +99,7 @@ namespace WindowsFormsApp
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            DetailEmployeeForm detailEmployeeForm = new DetailEmployeeForm();
+            EmployeeDetail detailEmployeeForm = new EmployeeDetail();
             detailEmployeeForm.Department = this.Department;
             mainPanel.Hide();
             detailEmployeeForm.MdiParent = this;

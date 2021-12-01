@@ -46,7 +46,7 @@ namespace MyApp.Forms
         private void FillDataToGridView() {
             DataSet dataSet = studentRepository.GetStudentsDataSet();
 
-            //Set AutoGenerateColumns False bởi vì chỉ cần 4 cột, không cần tất cả các cột
+            //Ta có set AutoGenerateColumns False bởi vì chỉ cần 4 cột, không cần tất cả các cột
 
             dataGridView.AutoGenerateColumns = false;
             dataGridView.AllowUserToAddRows = false;
@@ -58,38 +58,25 @@ namespace MyApp.Forms
             dataGridView.DataSource = null;
             dataGridView.ColumnCount = 4 ;
             
-            //Đặt thông tin của các column trong dataGridView dưới đây
+            //Ta có thông tin của các column trong dataGridView dưới đây
             dataGridView.Columns[0].Name = "TenLop";
-            dataGridView.Columns[0].HeaderText = "Ten lop";
+            dataGridView.Columns[0].HeaderText = "Tên lớp";
             dataGridView.Columns[0].DataPropertyName = "TenLop";
 
             dataGridView.Columns[1].Name = "TenSV";
-            dataGridView.Columns[1].HeaderText = "Ten SV";
+            dataGridView.Columns[1].HeaderText = "Tên Sinh Viên";
             dataGridView.Columns[1].DataPropertyName = "TenSV";
 
             dataGridView.Columns[2].Name = "UserNm";
-            dataGridView.Columns[2].HeaderText = "UserNm";
+            dataGridView.Columns[2].HeaderText = "UserName";
             dataGridView.Columns[2].DataPropertyName = "UserNm";
 
             dataGridView.Columns[3].Name = "DiaChi";
-            dataGridView.Columns[3].HeaderText = "Dia chi";
+            dataGridView.Columns[3].HeaderText = "Địa chỉ";
             dataGridView.Columns[3].DataPropertyName = "DiaChi";
-
-            //cách cũ: chia các cột nhưng ko đều
-            //dataGridView.AutoSizeColuzmnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            //dataGridView.Columns[dataGridView.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             foreach (DataGridViewColumn column in dataGridView.Columns)
             {
-                // Store Auto Sized Widths:
-                //int colw = dataGridView.Columns[i].Width;
-
-                // Remove AutoSizing:
-                //dataGridView.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-
-                // Set Width to calculated AutoSize value:
-                // Cách trên đúng nhất vì các cột sẽ tự chia đúng với độ dài của dữ liệu trong ô,
-                // còn cách dưới thì chia đều khoảng cách giữa các cột
                 column.Width = dataGridView.Width / dataGridView.Columns.Count;
             }
 
@@ -134,7 +121,7 @@ namespace MyApp.Forms
                     FillDataToGridView();
                 }
                 else {
-                    // If 'No' or anything else, do nothing.
+                    // If 'No' or anything else, nó sẽ chẳng làm gì cả =))
                 }
             }
             catch (Exception)
