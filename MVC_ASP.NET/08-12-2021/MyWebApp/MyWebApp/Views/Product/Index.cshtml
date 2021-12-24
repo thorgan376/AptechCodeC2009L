@@ -1,0 +1,29 @@
+﻿@using MyWebApp.Models;
+@model IEnumerable<MyWebApp.Models.Product>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Display some products</h2>
+<div class="table-container">
+    <table class="table is-bordered is-striped is-narrow is-hoverable">
+        <tr>
+            <th>@Html.DisplayNameFor(item => item.First().ProductName)</th>
+            <th>@Html.DisplayNameFor(item => item.First().Year)</th>
+            <th>@Html.DisplayNameFor(item => item.First().Price)</th>
+        </tr>
+        @foreach (Product product in Model)
+        {
+    <tr>
+        <td>@product.ProductName</td>
+        <td>@product.Year</td>
+        <td>@product.Price</td>
+
+    </tr>
+
+        }
+
+
+    </table>
+</div>
+
