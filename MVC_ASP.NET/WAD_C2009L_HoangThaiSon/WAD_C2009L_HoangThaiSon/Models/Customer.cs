@@ -9,7 +9,6 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using WAD_C2009L_NguyenVanA.Models.WAD_C2009L_HoangThaiSon.Models;
 
 namespace WAD_C2009L_HoangThaiSon.Models
 {
@@ -46,7 +45,8 @@ namespace WAD_C2009L_HoangThaiSon.Models
 
         [Required(ErrorMessage = "You must enter password")]
         [PasswordValidation(8)]
-        [RegularExpression(@"^()$",ErrorMessage = "Password must be have no blank space. At least one digit, one upper-case letter, one lower-case letter, one special character")]
+        [RegularExpression(@"^(?!.*[\s])(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$", 
+            ErrorMessage = "Password must be have no blank space. At least one number, one upper-case letter, one lower-case letter, one special character")]
         public string Password { get; set; }
 
         [Required(ErrorMessage = "You must enter confirm password")]

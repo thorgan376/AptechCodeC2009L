@@ -10,6 +10,7 @@ using WAD_C2009L_HoangThaiSon.Models;
 
 namespace WAD_C2009L_HoangThaiSon.Controllers
 {
+    [Authorize]
     public class CustomersController : Controller
     {
         private CustomerDatabaseEntities db = new CustomerDatabaseEntities();
@@ -36,7 +37,7 @@ namespace WAD_C2009L_HoangThaiSon.Controllers
             }
             return View(customer);
         }
-
+        [Authorize(Users = "admin@mvc.com")]
         // GET: Customers/Create
         public ActionResult Create()
         {
@@ -48,6 +49,7 @@ namespace WAD_C2009L_HoangThaiSon.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize(Users = "admin@mvc.com")]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "CustomerId,Fullname,Birthday,Address,Email,Username,Password,ConfirmPassword,ClassId")] Customer customer)
         {
@@ -63,6 +65,7 @@ namespace WAD_C2009L_HoangThaiSon.Controllers
         }
 
         // GET: Customers/Edit/5
+        [Authorize(Users = "admin@mvc.com")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -83,6 +86,7 @@ namespace WAD_C2009L_HoangThaiSon.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Users = "admin@mvc.com")]
         public ActionResult Edit([Bind(Include = "CustomerId,Fullname,Birthday,Address,Email,Username,Password,ConfirmPassword,ClassId")] Customer customer)
         {
             if (ModelState.IsValid)
@@ -96,6 +100,7 @@ namespace WAD_C2009L_HoangThaiSon.Controllers
         }
 
         // GET: Customers/Delete/5
+        [Authorize(Users = "admin@mvc.com")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -113,6 +118,7 @@ namespace WAD_C2009L_HoangThaiSon.Controllers
         // POST: Customers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Users = "admin@mvc.com")]
         public ActionResult DeleteConfirmed(int id)
         {
             Customer customer = db.Customers.Find(id);

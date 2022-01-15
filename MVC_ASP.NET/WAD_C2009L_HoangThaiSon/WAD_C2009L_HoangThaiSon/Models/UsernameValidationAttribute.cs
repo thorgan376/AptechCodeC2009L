@@ -16,7 +16,7 @@ namespace WAD_C2009L_HoangThaiSon.Models
             MaximumLength = maximumLength;
         }
         public string GetErrorMessage() =>
-            $"Username must have between {MinimumLength} and {MaximumLength}" +
+            $"Username must have at {MinimumLength} and  " +
                 $"No underscore ‘_’, no dot ‘.’ at the beginning or end. No '__'," +
                 "'._', '_.', '..' at the middle.";
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
@@ -32,9 +32,7 @@ namespace WAD_C2009L_HoangThaiSon.Models
             {
                 return new ValidationResult(GetErrorMessage());
             }
-
             return ValidationResult.Success;
-        }
-
+        } 
     }
 }
