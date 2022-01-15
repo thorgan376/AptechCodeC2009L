@@ -10,7 +10,7 @@ using WAD_C2009L_HoangThaiSon.Models;
 
 namespace WAD_C2009L_HoangThaiSon.Controllers
 {
-    public class CustomersController : DbContext
+    public class CustomersController : Controller
     {
         private CustomerDatabaseEntities db = new CustomerDatabaseEntities();
 

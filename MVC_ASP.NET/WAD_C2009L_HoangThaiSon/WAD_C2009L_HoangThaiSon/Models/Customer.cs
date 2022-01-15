@@ -6,24 +6,54 @@
 //     Manual changes to this file will be overwritten if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using WAD_C2009L_NguyenVanA.Models.WAD_C2009L_HoangThaiSon.Models;
 
 namespace WAD_C2009L_HoangThaiSon.Models
 {
-    using System;
-    using System.Collections.Generic;
-    
+
+
     public partial class Customer
     {
         public int CustomerId { get; set; }
+
+        [Display(Name = "Full Name")]
+        [Required(ErrorMessage = "You must enter fullname and it's required")]
+        [StringLength(maximumLength: 32, MinimumLength = 3, ErrorMessage = "Length must be between 3 and 32")]
         public string Fullname { get; set; }
+
+        [Display(Name = "Birthday")]
+        [Required(ErrorMessage ="The Birthday is required")]
+        [DataType(DataType.Date)]
         public System.DateTime Birthday { get; set; }
+
+        [Display(Name ="Address")]
+        [Required(ErrorMessage ="The address is required")]
         public string Address { get; set; }
+
+        [Display(Name = "Email")]
+        [Required(ErrorMessage = "The email is required")]
+        [EmailAddress(ErrorMessage ="You must enter a valid email")]
         public string Email { get; set; }
+
+        [Required(ErrorMessage ="The username must not be null")]
+        [UsernameValidation(8,20)]
+        [RegularExpression(@"^(?![_.])(?!.*[_.]$)(?!.*_[_.])(?!.*.[_.])[a-zA-Z0-9_.]+$", 
+            ErrorMessage = "No underscore ‘_’, no dot ‘.’ at the beginning or end. No '__','._', '_.', '..' at the middle.")]
         public string Username { get; set; }
+
+        [Required(ErrorMessage = "You must enter password")]
+        [PasswordValidation(8)]
+        [RegularExpression(@"^()$",ErrorMessage = "Password must be have no blank space. At least one digit, one upper-case letter, one lower-case letter, one special character")]
         public string Password { get; set; }
+
+        [Required(ErrorMessage = "You must enter confirm password")]
+        [Compare("ConfirmPassword", ErrorMessage = "Password doesn't match.")]
         public string ConfirmPassword { get; set; }
+
         public int ClassId { get; set; }
-    
         public virtual Class Class { get; set; }
     }
 }
