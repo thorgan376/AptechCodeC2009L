@@ -10,13 +10,7 @@ namespace WAD_C2009L_HoangThaiSon.Models
     {
         public int MinimumLength { get; }
         public int MaximumLength { get; }
-        public UsernameValidationAttribute(int minimumLength, int maximumLength)
-        {
-            MinimumLength = minimumLength;
-            MaximumLength = maximumLength;
-        }
         public string GetErrorMessage() =>
-            $"Username must have at {MinimumLength} and  " +
                 $"No underscore ‘_’, no dot ‘.’ at the beginning or end. No '__'," +
                 "'._', '_.', '..' at the middle.";
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)

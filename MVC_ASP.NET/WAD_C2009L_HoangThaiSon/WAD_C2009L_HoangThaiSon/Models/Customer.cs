@@ -23,9 +23,10 @@ namespace WAD_C2009L_HoangThaiSon.Models
         [StringLength(maximumLength: 32, MinimumLength = 3, ErrorMessage = "Length must be between 3 and 32")]
         public string Fullname { get; set; }
 
-        [Display(Name = "Birthday")]
         [Required(ErrorMessage ="The Birthday is required")]
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}"
+            , ApplyFormatInEditMode = true)]
         public System.DateTime Birthday { get; set; }
 
         [Display(Name ="Address")]
@@ -38,7 +39,7 @@ namespace WAD_C2009L_HoangThaiSon.Models
         public string Email { get; set; }
 
         [Required(ErrorMessage ="The username must not be null")]
-        [UsernameValidation(8,20)]
+        [StringLength(20, ErrorMessage = "Username must have at 8 and 20 ",MinimumLength =8)]
         [RegularExpression(@"^(?![_.])(?!.*[_.]$)(?!.*_[_.])(?!.*.[_.])[a-zA-Z0-9_.]+$", 
             ErrorMessage = "No underscore ‘_’, no dot ‘.’ at the beginning or end. No '__','._', '_.', '..' at the middle.")]
         public string Username { get; set; }

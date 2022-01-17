@@ -6,66 +6,65 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using WAD_C2009L_HoangThaiSon.Models;
+using WAD_C2009L_HoangThaiSon1.Models;
 
-namespace WAD_C2009L_HoangThaiSon.Controllers
+namespace WAD_C2009L_HoangThaiSon1.Controllers
 {
     [Authorize]
-    public class CustomersController : Controller
+    public class ProductsController : Controller
     {
-        private CustomerDatabaseEntities db = new CustomerDatabaseEntities();
+        private ProductManagementEntities db = new ProductManagementEntities();
 
-        // GET: Customers
+        // GET: Products
         public ActionResult Index()
         {
-            var customers = db.Customers.Include(c => c.Class);
-            return View(customers.ToList());
-
+            var products = db.Products.Include(p => p.Category);
+            return View(products.ToList());
         }
 
-        // GET: Customers/Details/5
+        // GET: Products/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customers.Find(id);
-            if (customer == null)
+            Product product = db.Products.Find(id);
+            if (product == null)
             {
                 return HttpNotFound();
             }
-            return View(customer);
+            return View(product);
         }
+
+        // GET: Products/Create
         [Authorize(Users = "admin@mvc.com")]
-        // GET: Customers/Create
         public ActionResult Create()
         {
-            ViewBag.ClassId = new SelectList(db.Classes, "ClassId", "ClassName");
+            ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "CategoryName");
             return View();
         }
 
-        // POST: Customers/Create
+        // POST: Products/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [Authorize(Users = "admin@mvc.com")]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CustomerId,Fullname,Birthday,Address,Email,Username,Password,ConfirmPassword,ClassId")] Customer customer)
+        [Authorize(Users = "admin@mvc.com")]
+        public ActionResult Create([Bind(Include = "ProductId,ProductName,Price,Quantity,ReleaseDate,CategoryId")] Product product)
         {
             if (ModelState.IsValid)
             {
-                db.Customers.Add(customer);
-                db.SaveChanges();
-                SetAlert("Create New Customer Successfully",1);
-                return RedirectToAction("Index");
+                    db.Products.Add(product);
+                    db.SaveChanges();
+                    SetAlert(message: "Create Product Successfully", 1);
+                    return RedirectToAction("Index");
             }
-
-            ViewBag.ClassId = new SelectList(db.Classes, "ClassId", "ClassName", customer.ClassId);
-            return View(customer);
+            ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "CategoryName", product.CategoryId);
+            return View(product);
         }
 
-        // GET: Customers/Edit/5
+        // GET: Products/Edit/5
         [Authorize(Users = "admin@mvc.com")]
         public ActionResult Edit(int? id)
         {
@@ -73,35 +72,35 @@ namespace WAD_C2009L_HoangThaiSon.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customers.Find(id);
-            if (customer == null)
+            Product product = db.Products.Find(id);
+            if (product == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.ClassId = new SelectList(db.Classes, "ClassId", "ClassName", customer.ClassId);
-            return View(customer);
+            ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "CategoryName", product.CategoryId);
+            return View(product);
         }
 
-        // POST: Customers/Edit/5
+        // POST: Products/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Users = "admin@mvc.com")]
-        public ActionResult Edit([Bind(Include = "CustomerId,Fullname,Birthday,Address,Email,Username,Password,ConfirmPassword,ClassId")] Customer customer)
+        public ActionResult Edit([Bind(Include = "ProductId,ProductName,Price,Quantity,ReleaseDate,CategoryId")] Product product)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(customer).State = EntityState.Modified;
+                db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();
-                SetAlert("Edit Customer Successfully", 2);
+                SetAlert("Edit Product Infomation Successfully", 2);
                 return RedirectToAction("Index");
             }
-            ViewBag.ClassId = new SelectList(db.Classes, "ClassId", "ClassName", customer.ClassId);
-            return View(customer);
+            ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "CategoryName", product.CategoryId);
+            return View(product);
         }
 
-        // GET: Customers/Delete/5
+        // GET: Products/Delete/5
         [Authorize(Users = "admin@mvc.com")]
         public ActionResult Delete(int? id)
         {
@@ -109,24 +108,24 @@ namespace WAD_C2009L_HoangThaiSon.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customers.Find(id);
-            if (customer == null)
+            Product product = db.Products.Find(id);
+            if (product == null)
             {
                 return HttpNotFound();
             }
-            return View(customer);
+            return View(product);
         }
 
-        // POST: Customers/Delete/5
+        // POST: Products/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         [Authorize(Users = "admin@mvc.com")]
         public ActionResult DeleteConfirmed(int id)
         {
-            Customer customer = db.Customers.Find(id);
-            db.Customers.Remove(customer);
+            Product product = db.Products.Find(id);
+            db.Products.Remove(product);
             db.SaveChanges();
-            SetAlert("Delete Customer Successfully", 3);
+            SetAlert("Delete Product Successfully", 3);
             return RedirectToAction("Index");
         }
 
