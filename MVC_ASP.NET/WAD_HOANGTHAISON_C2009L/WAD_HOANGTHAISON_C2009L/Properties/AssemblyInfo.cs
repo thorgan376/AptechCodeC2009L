@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("WAD_HOANGTHAISON_C2009L")]
+[assembly: AssemblyTitle("WAD_HoangThaiSon_C2009L")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("WAD_HOANGTHAISON_C2009L")]
+[assembly: AssemblyProduct("WAD_HoangThaiSon_C2009L")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("09aec43f-f271-4a32-ba3f-c8d833f324cb")]
+[assembly: Guid("173cd990-a4bc-41a3-b866-358d78d15012")]
 
 // Version information for an assembly consists of the following four values:
 //

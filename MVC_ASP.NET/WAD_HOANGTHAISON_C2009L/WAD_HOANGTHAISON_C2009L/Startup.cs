@@ -1,8 +1,8 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(WAD_HOANGTHAISON_C2009L.Startup))]
-namespace WAD_HOANGTHAISON_C2009L
+[assembly: OwinStartupAttribute(typeof(WAD_HoangThaiSon_C2009L.Startup))]
+namespace WAD_HoangThaiSon_C2009L
 {
     public partial class Startup
     {

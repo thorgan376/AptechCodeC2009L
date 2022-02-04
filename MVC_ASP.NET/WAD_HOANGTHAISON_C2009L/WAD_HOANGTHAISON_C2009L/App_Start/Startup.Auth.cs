@@ -5,9 +5,9 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using WAD_HOANGTHAISON_C2009L.Models;
+using WAD_HoangThaiSon_C2009L.Models;
 
-namespace WAD_HOANGTHAISON_C2009L
+namespace WAD_HoangThaiSon_C2009L
 {
     public partial class Startup
     {

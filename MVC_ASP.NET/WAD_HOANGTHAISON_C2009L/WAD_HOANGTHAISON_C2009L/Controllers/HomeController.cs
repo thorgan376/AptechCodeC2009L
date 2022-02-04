@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace WAD_HOANGTHAISON_C2009L.Controllers
+namespace WAD_HoangThaiSon_C2009L.Controllers
 {
     public class HomeController : Controller
     {

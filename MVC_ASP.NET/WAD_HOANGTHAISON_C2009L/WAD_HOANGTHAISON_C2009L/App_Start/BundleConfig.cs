@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace WAD_HOANGTHAISON_C2009L
+namespace WAD_HoangThaiSon_C2009L
 {
     public class BundleConfig
     {

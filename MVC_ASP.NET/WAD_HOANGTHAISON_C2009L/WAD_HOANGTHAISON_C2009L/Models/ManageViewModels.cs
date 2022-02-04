@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 
-namespace WAD_HOANGTHAISON_C2009L.Models
+namespace WAD_HoangThaiSon_C2009L.Models
 {
     public class IndexViewModel
     {

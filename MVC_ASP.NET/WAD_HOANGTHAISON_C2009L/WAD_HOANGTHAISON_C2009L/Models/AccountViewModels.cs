@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace WAD_HOANGTHAISON_C2009L.Models
+namespace WAD_HoangThaiSon_C2009L.Models
 {
     public class ExternalLoginConfirmationViewModel
     {

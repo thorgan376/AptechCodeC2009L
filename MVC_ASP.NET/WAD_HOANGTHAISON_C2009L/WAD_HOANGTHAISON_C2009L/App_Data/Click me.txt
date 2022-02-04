@@ -1,0 +1,3 @@
+﻿Các thầy khi chấm có thể sẽ ko thấy cái file Database.sql của em trong bài Visual Studio nên là thầy có thể mở trực tiếp App_Data bên ngoài để xem dữ liệu
+
+Admin user vì một số điều kiện phụ nên e đổi sang Username = "admin@mvc.com" Password = "Abcd@1234"(tùy chọn nhưng cần 1 chữ Hoa, 1 chữ thường, 1 ký tự đặc biệt và 1 số)
