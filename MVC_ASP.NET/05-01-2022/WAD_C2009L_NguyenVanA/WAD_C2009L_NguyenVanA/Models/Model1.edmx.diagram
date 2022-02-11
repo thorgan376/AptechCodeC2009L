@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cb3bca78f020407aba078e9f54012fea" Name="Diagram1">
+        <EntityTypeShape EntityType="aptechModel.Class" Width="1.5" PointX="1.625" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="aptechModel.Customer" Width="1.5" PointX="5.5" PointY="4.25" IsExpanded="true" />
+        <AssociationConnector Association="aptechModel.FK__Customer__ClassI__29572725" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

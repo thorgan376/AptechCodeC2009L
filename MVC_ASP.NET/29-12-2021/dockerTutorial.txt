@@ -1,0 +1,13 @@
+- pull SQLServer images to your PC/Laptop/Server
+docker pull mcr.microsoft.com/mssql/server:2019-latest
+docker pull mcr.microsoft.com/mssql/server:2017-latest
+
+- start 2 containers: 2 SQL Server versions
+docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Abc123456789@" -p 1435:1433 -d --name sql-server-2019-c2009l -v C:\Users\sunli\Desktop\temp\sql-server-2019-c2009l-volume:/var/opt/mssql/data mcr.microsoft.com/mssql/server:2019-latest
+
+docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Abc123456789@" -p 1436:1433 -d --name sql-server-2017-c2009l -v C:\Users\sunli\Desktop\temp\sql-server-2017-c2009l-volume:/var/opt/mssql/data mcr.microsoft.com/mssql/server:2017-latest
+
+connect dung Azure Data Studio(MacOS/Windows)
+
+docker rm --force frosty_swartz
+- map Database folder in container <=> Folder in your PC/Laptop/Server
