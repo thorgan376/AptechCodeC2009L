@@ -1,0 +1,14 @@
+{
+  "name": "25-02-2022",
+  "version": "1.0.0",
+  "description": "Bản ReactJs thứ hai",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "hoho"
+  ],
+  "author": "thorgan376",
+  "license": "ISC"
+}
