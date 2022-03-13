@@ -26,7 +26,7 @@ namespace EAP_C2009L.Controllers
             // Down below is searching
             if (!String.IsNullOrEmpty(searchString))
             {
-                products = products.Where(s => s.Name.Contains(searchString));
+                products = products.Where(p => p.Name.Contains(searchString));
             }
             //var products = db.Products.Include(p => p.Category);
             //down below is sorting

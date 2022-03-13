@@ -19,3 +19,5 @@ git push -u origin main
 You can initialize this repository with code from a Subversion, Mercurial, or TFS project.
 
 Google Search - how to write shell in Linux
+
+git pull, lấy code về máy

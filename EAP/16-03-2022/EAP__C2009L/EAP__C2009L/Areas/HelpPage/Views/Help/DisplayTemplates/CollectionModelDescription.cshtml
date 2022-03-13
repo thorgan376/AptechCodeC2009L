@@ -1,0 +1,6 @@
+@using EAP__C2009L.Areas.HelpPage.ModelDescriptions
+@model CollectionModelDescription
+@if (Model.ElementDescription is ComplexTypeModelDescription)
+{
+    @Html.DisplayFor(m => m.ElementDescription)
+}
