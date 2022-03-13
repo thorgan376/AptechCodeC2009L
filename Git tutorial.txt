@@ -1,13 +1,14 @@
 …or create a new repository on the command line
 echo "# tên file chính" >> README.md
-git init
-git add README.md
+git init: tạo kho mới
+git add README.md: test tạo 1 file mới, đây là text.txt
 git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/thorgan376/AptechCode.git
-git push -u origin main
+git branch -M main: nếu như làm 1 mình thì ko vấn đề, nhưng nếu làm trong 1 nhóm thì mình sẽ có nhiều nhánh: test( muốn làm gì cũng đc ), nhánh chính(quan trọng và chỉ các ae cùng đồng ý mới push vào trong đó)
+git remote add origin https://github.com/thorgan376/AptechCode.git: nối địa chỉ kho client và kho cloud.
+git push -u origin main: đẩy code lên
 
-sh pushsource.sh ( Dùng file của thầy )
+sh pushsource.sh ( Dùng file của thầy ): có thể kích đúp chuột ( trong file này có 3 dòng code sau:
+git add . && git commit -m "update" && git push)
 
 …or push an existing repository from the command line
 git remote add origin https://github.com/thorgan376/AptechCode.git
