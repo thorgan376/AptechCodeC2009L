@@ -11,19 +11,29 @@ namespace EAP__C2009L.Controllers
     public class JsonWSController : System.Web.Http.ApiController
     {
         private DataContext db = new DataContext();
-        [HttpGet]
+        //api/JsonWS
         public JToken Get()
         {
-           var products = db.Products;
-           string json = products.ToString();
-            return JToken.Parse(json);
+            List<Product> products = db.Products.ToList();
+            return JToken.FromObject(products.Select(product => new {
+                Name = product.Name,
+                ProductId = product.ProductId,
+                Price = product.Price,
+                Quantity = product.Quantity
+            }));
         }
-        [HttpGet]
         public JToken Get(int id)
         {
-            Product product = db.Products.Where(p => p.CategoryId == id).FirstOrDefault();
+            Product product = db.Products
+            .Where(p => p.CategoryId == id)
+            .FirstOrDefault();
 
-            return JToken.Parse(product.ToString());
+            return JToken.FromObject(new {
+                Name = product.Name,
+                ProductId = product.ProductId,
+                Price = product.Price,
+                Quantity = product.Quantity
+            });
         }
     }
 }
